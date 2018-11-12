@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Semantic UI -->
+    <link href="{{ asset('css/semantic.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/semantic.js') }}" defer></script>
 </head>
 <body>
     <div id="app">
