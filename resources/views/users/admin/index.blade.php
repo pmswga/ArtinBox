@@ -1,5 +1,5 @@
 @extends('users.admin.layouts.app')
-
+@section('title') Панель администратора @endsection
 
 @section('content')
 

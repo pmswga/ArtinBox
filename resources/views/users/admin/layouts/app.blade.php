@@ -38,7 +38,7 @@
                 Заявки
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a href="#add_manager" class="item">Создать заявку</a>
+                    <a href="{{ route('admin.add_order') }}" class="item">Создать заявку</a>
                     <a href="#add_master" class="item">Архив</a>
                 </div>
             </div>
