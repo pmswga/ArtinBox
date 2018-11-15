@@ -13,19 +13,19 @@
 
                     <div class="field">
                         <label>Имя</label>
-                        <input type="text">
+                        <input type="text" name="name">
                     </div>
                     <div class="field">
                         <label>E-mail</label>
-                        <input type="email">
+                        <input type="email" name="email">
                     </div>
                     <div class="field">
                         <label>Пароль</label>
-                        <input type="password">
+                        <input type="password" name="password">
                     </div>
                     <div class="field">
                         <label>Повторить пароль</label>
-                        <input type="password">
+                        <input type="password" name="password_confirmation">
                     </div>
                     <div class="field">
                         <label>Тип пользователя</label>
