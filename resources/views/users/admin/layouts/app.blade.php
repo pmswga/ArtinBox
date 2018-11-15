@@ -7,11 +7,11 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name') }} | Admin Panel</title>
+        <title>{{ config('app.name') }} | @yield('title') </title>
 
         <!-- Scripts -->
-        <script src="{{ asset('js/jquery.js') }}" defer></script>
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -19,7 +19,7 @@
 
         <!-- Semantic UI -->
         <link href="{{ asset('css/semantic.css') }}" rel="stylesheet">
-        <script src="{{ asset('js/semantic.js') }}" defer></script>
+        <script src="{{ asset('js/semantic.js') }}"></script>
     </head>
     <body>
         <div class="ui pointing menu">
@@ -30,8 +30,8 @@
                 Пользователи
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a href="#add_manager" class="item">Добавить менеджера</a>
-                    <a href="#add_master" class="item">Добавить мастера</a>
+                    <a href="{{ route('admin.add_user') }}" class="item">Добавить</a>
+                    <a href="{{ route('admin.users') }}" class="item">Просмотр</a>
                 </div>
             </div>
             <div class="ui dropdown item">
@@ -61,9 +61,7 @@
     
         <script type="text/javascript">
         
-            $('document').ready(function(){
-                alert("Hello World");
-            });
+            $('.ui.dropdown').dropdown();
 
         </script>
 
