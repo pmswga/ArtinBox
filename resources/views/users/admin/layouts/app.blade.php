@@ -23,17 +23,10 @@
     </head>
     <body>
         <div class="ui pointing menu">
-            <div class="item">
+            <a href="{{ route('admin.index') }}" class="item">
                 <h2>ArtinBox</h2>
-            </div>
-            <div class="ui dropdown item">
-                Пользователи
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a href="{{ route('admin.add_user') }}" class="item">Добавить</a>
-                    <a href="{{ route('admin.users') }}" class="item">Просмотр</a>
-                </div>
-            </div>
+            </a>
+            <a href="{{ route('admin.users') }}" class="item">Пользователи</a>
             <div class="ui dropdown item">
                 Заявки
                 <i class="dropdown icon"></i>

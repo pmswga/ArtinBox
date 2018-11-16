@@ -1,5 +1,5 @@
-@extends('users.admin.layouts.app')
-@section('title') Панель администратора @endsection
+@extends('users.manager.layouts.app')
+@section('title') Панель менеджера @endsection
 
 @section('content')
 
@@ -30,4 +30,3 @@
     </div>
 
 @endsection
-

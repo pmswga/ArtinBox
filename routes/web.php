@@ -6,20 +6,23 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'MainController@index')->name('home');
+
+// Route::resource('CRUD\UsersController');
 
 Route::group(['prefix' => '/admin'], function (){
 
     Route::get('/', 'Pages\AdminPageController@index')->name('admin.index');
-    Route::get('/add-user', function () { return view('users.admin.add_user'); } )->name('admin.add_user');
     Route::get('/users', 'Pages\AdminPageController@users')->name('admin.users');
     Route::get('/add-order', function () { return view('users.admin.add_order'); } )->name('admin.add_order');
+    //Route::resource('users', 'CRUD\UsersController');
 
 });
 
 Route::group(['prefix' => '/manager'], function (){
 
-    Route::get('/', function () { return "Hello, Manager"; })->name('manager.index');
+    Route::get('/', function () { return view('users.manager.index'); })->name('manager.index');
+    Route::get('/orders', function () { return view('users.manager.orders'); } )->name('manager.orders');
 
 });
 

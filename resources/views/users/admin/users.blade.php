@@ -1,35 +1,75 @@
 @extends('users.admin.layouts.app')
+@section('title') Пользователи @endsection
 
 @section('content')
 
-    <div class="ui grid">
+    <div class="ui internally celled grid">
         <div class="row">
-            <div class="two wide column"></div>
-            <div class="twelve wide column">
-                <table class="ui wide table">
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Имя</th>
-                            <th>E-mail</th>
-                            <th>Дата добавления</th>
-                            <th>Тип пользователя</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
+            <div class="ten wide column">
+                <fieldset class="ui segment">
+                    <legend><h3>Список пользователей</h3></legend>
+                    <table class="ui wide table">
+                        <thead>
                             <tr>
-                                <td></td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->create_at }}</td>
-                                <td>{{ $user->getUserType() }}</td>
+                                <th>№</th>
+                                <th>Имя</th>
+                                <th>E-mail</th>
+                                <th>Дата добавления</th>
+                                <th>Тип пользователя</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @php $i = 1 @endphp
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>{{ $i }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->create_at }}</td>
+                                    <td>{{ $user->getUserType() }}</td>
+                                </tr>
+                                @php $i += 1 @endphp
+                            @endforeach
+                        </tbody>
+                    </table>
+                </fieldset>
             </div>
-            <div class="two wide column"></div>
+            <div class="six wide column">
+                <fieldset class="ui segment">
+                    <legend><h3>Добавить пользователя</h3></legend>
+                    <form class="ui form" method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="field">
+                            <label>Имя</label>
+                            <input type="text" name="name">
+                        </div>
+                        <div class="field">
+                            <label>E-mail</label>
+                            <input type="email" name="email">
+                        </div>
+                        <div class="field">
+                            <label>Пароль</label>
+                            <input type="password" name="password">
+                        </div>
+                        <div class="field">
+                            <label>Повторить пароль</label>
+                            <input type="password" name="password_confirmation">
+                        </div>
+                        <div class="field">
+                            <label>Тип пользователя</label>
+                            <select name="user_type">
+                                <option value="3">Мастер</option>
+                                <option value="2">Менеджер</option>
+                                <option value="1">Администратор</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <input type="submit" class="ui primary button">
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
         </div>
     </div>
 
