@@ -11,7 +11,7 @@ class BoxesTypesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('BoxesType')->insert([
+        DB::table('boxestype')->insert([
             [
                 'caption' => 'Живописный'
             ],

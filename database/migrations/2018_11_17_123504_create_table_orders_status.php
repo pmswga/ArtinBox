@@ -13,7 +13,7 @@ class CreateTableOrdersStatus extends Migration
      */
     public function up()
     {
-        Schema::create('OrdersStatus', function (Blueprint $table) {
+        Schema::create('ordersstatus', function (Blueprint $table) {
             $table->increments('id_order_status');
             $table->string('caption')->unique();
         });
@@ -26,6 +26,6 @@ class CreateTableOrdersStatus extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('OrdersStatus');
+        Schema::dropIfExists('ordersstatus');
     }
 }

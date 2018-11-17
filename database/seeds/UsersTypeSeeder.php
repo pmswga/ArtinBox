@@ -11,7 +11,7 @@ class UsersTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('UsersType')->insert([
+        DB::table('userstype')->insert([
             [
                 'caption' => 'Администратор'
             ],

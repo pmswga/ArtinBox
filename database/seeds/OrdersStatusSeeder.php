@@ -11,7 +11,7 @@ class OrdersStatusSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('OrdersStatus')->insert([
+        DB::table('ordersstatus')->insert([
             [
                 'caption' => 'В производстве'
             ],

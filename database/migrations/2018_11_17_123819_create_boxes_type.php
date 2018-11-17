@@ -13,7 +13,7 @@ class CreateBoxesType extends Migration
      */
     public function up()
     {
-        Schema::create('BoxesType', function (Blueprint $table) {
+        Schema::create('boxestype', function (Blueprint $table) {
             $table->increments('id_box_type');
             $table->string('caption')->unique();
         });
@@ -26,6 +26,6 @@ class CreateBoxesType extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BoxesType');
+        Schema::dropIfExists('boxestype');
     }
 }

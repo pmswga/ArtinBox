@@ -17,7 +17,7 @@
         <script src="{{ asset('js/semantic.js') }}"></script>
     </head>
     <body>
-        <div class="ui pointing menu">
+        <div class="ui pointing fluid menu">
             <a href="{{ route('admin.index') }}" class="item">
                 <h2>ArtinBox</h2>
             </a>
@@ -40,7 +40,7 @@
             </div>
         </div>
         
-        <div class="ui grid">
+        <div class="ui fluid grid">
             <div class="row">
                 <div class="sixteen wide column">
                     @yield('content')
