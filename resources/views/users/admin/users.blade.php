@@ -16,6 +16,7 @@
                                 <th>E-mail</th>
                                 <th>Дата добавления</th>
                                 <th>Тип пользователя</th>
+                                <th>Выбрать</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,8 +26,14 @@
                                     <td>{{ $i }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->create_at }}</td>
+                                    <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->getUserType() }}</td>
+                                    <td>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox">
+                                            <label for=""></label>
+                                        </div>
+                                    </td>
                                 </tr>
                                 @php $i += 1 @endphp
                             @endforeach
@@ -37,7 +44,7 @@
             <div class="six wide column">
                 <fieldset class="ui segment">
                     <legend><h3>Добавить пользователя</h3></legend>
-                    <form class="ui form" method="POST" action="{{ route('register') }}">
+                    <form class="ui form" method="POST" action="{{ route('users.store') }}">
                         @csrf
 
                         <div class="field">

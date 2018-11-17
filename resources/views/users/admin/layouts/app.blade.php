@@ -10,12 +10,7 @@
         <title>{{ config('app.name') }} | @yield('title') </title>
 
         <!-- Scripts -->
-        <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
         <!-- Semantic UI -->
         <link href="{{ asset('css/semantic.css') }}" rel="stylesheet">
@@ -26,16 +21,17 @@
             <a href="{{ route('admin.index') }}" class="item">
                 <h2>ArtinBox</h2>
             </a>
-            <a href="{{ route('admin.users') }}" class="item">Пользователи</a>
-            <div class="ui dropdown item">
-                Заявки
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a href="{{ route('admin.add_order') }}" class="item">Создать заявку</a>
-                    <a href="#add_master" class="item">Архив</a>
-                </div>
-            </div>
+            <a href="#addOrder" id="addOrderButton" class="item">Создать заявку</a>
+            <a href="{{ route('users.index') }}" class="item">Пользователи</a>
             <div class="right menu">
+                <div class="ui dropdown item">
+                    Настройки
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="{{ route('usersType.index') }}" class="item">Типы пользователей</a>
+                        <a href="#types_2" class="item">Типы коробок</a>
+                    </div>
+                </div>
                 @auth
 
                 @else
@@ -52,9 +48,14 @@
             </div>
         </div>
     
+        @include('users.admin.modals.add_order')
+
         <script type="text/javascript">
         
             $('.ui.dropdown').dropdown();
+            $('#addOrderButton').on('click', function (){
+                $('#addOrderModal').modal('show');
+            });
 
         </script>
 

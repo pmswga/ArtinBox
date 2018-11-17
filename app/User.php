@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Models\UsersType;
 
 class User extends Authenticatable
 {
@@ -22,9 +23,7 @@ class User extends Authenticatable
 
     public function getUserType()
     {
-        return \DB::table('users')->join('userstype', 'users.id_user_type', '=', 'userstype.id_user_type')->get()->first()->caption;
-
-        // return $this->hasOne('App\UserType', 'id_user_type', 'id_user_type');
+        return $this->hasOne(Models\UsersType::class, 'id_user_type', 'id_user_type')->first()['caption'];
     }
 
 }

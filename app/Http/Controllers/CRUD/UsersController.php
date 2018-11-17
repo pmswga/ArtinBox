@@ -36,7 +36,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return view('users.admin.users', [
+            'users' => User::get()
+        ]);
     }
 
     /**
@@ -46,12 +48,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'id_user_type' => $data['user_type'] ?? 1,
-        ]);
+
     }
 
     /**
@@ -62,7 +59,14 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => \Hash::make($request['password']),
+            'id_user_type' => $request['user_type'],
+        ]);
+
+        return back();
     }
 
     /**

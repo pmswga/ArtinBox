@@ -14,11 +14,4 @@ class AdminPageController extends Controller
         return view('users.admin.index');
     }
 
-    public function users()
-    {
-        return view('users.admin.users', [
-            'users' => User::get(),
-        ]);
-    }
-
 }

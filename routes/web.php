@@ -13,9 +13,9 @@ Route::get('/home', 'MainController@index')->name('home');
 Route::group(['prefix' => '/admin'], function (){
 
     Route::get('/', 'Pages\AdminPageController@index')->name('admin.index');
-    Route::get('/users', 'Pages\AdminPageController@users')->name('admin.users');
-    Route::get('/add-order', function () { return view('users.admin.add_order'); } )->name('admin.add_order');
-    //Route::resource('users', 'CRUD\UsersController');
+    //Route::get('/add-order', function () { return view('users.admin.add_order'); } )->name('admin.add_order');
+    Route::resource('usersType', 'CRUD\UsersTypeController');
+    Route::resource('users', 'CRUD\UsersController');
 
 });
 
