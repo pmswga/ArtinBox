@@ -35,7 +35,7 @@
             </div>
             <div class="right menu">
                 @auth
-
+                    @include('auth.components.logout_button')
                 @else
                     <a href="#" class="item">Exit</a>
                 @endauth
