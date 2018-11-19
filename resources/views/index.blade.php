@@ -43,7 +43,7 @@
                     <fieldset class="ui segment">
                         <legend><h3>Войти</h3></legend>
                         <form class="ui form" method="POST" action="{{ route('login') }}">
-                            @csrf
+                            <meta name="csrf-token" content="{{ csrf_token() }}">
 
                             <div class="field">
                                 <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
