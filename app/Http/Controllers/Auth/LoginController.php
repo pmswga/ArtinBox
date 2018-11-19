@@ -9,22 +9,33 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
+    public function test(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('dashboard');
+        }
+    }
+
     protected function redirectTo()
     {
-        switch (\Auth::user()->id_user_type) 
-        {
-            case 1:
+        if (\Auth::check()) {
+            switch (\Auth::user()->id_user_type) 
             {
-                return route('admin.index');
-            } break;
-            case 2:
-            {
-                return route('manager.index');
-            } break;
-            case 3:
-            {
-                return route('master.index');
-            } break;
+                case 1:
+                {
+                    return route('admin.index');
+                } break;
+                case 2:
+                {
+                    return route('manager.index');
+                } break;
+                case 3:
+                {
+                    return route('master.index');
+                } break;
+            }
         }
     }
 
