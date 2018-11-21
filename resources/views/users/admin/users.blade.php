@@ -23,19 +23,19 @@
                             @php $i = 1 @endphp
                             @foreach ($users as $user)
                                 <tr>
-                                    <td>{{ $i }}</td>
+                                    <td>{{ $i++ }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->getUserType() }}</td>
                                     <td>
-                                        <div class="ui checkbox">
-                                            <input type="checkbox">
-                                            <label for=""></label>
-                                        </div>
+                                        <form method="POST" action="{{ route('users.destroy', $user) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" value="Delete">
+                                        </form>
                                     </td>
                                 </tr>
-                                @php $i += 1 @endphp
                             @endforeach
                         </tbody>
                     </table>

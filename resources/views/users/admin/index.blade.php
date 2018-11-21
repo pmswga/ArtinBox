@@ -55,8 +55,9 @@
                                     <td>
                                         <form method="POST" action="{{ route('orders.destroy', $order) }}">
                                             @csrf
-                                            <input type="hidden" name="_method" value="DELETE" />
-                                            <input type="submit" name="id_order" value="Delete">
+                                            @method('DELETE')
+
+                                            <input type="submit" value="Delete">
                                         </form>
                                     </td>
                                 </tr>
