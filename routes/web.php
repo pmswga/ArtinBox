@@ -10,6 +10,8 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']],
     //Route::get('/add-order', function () { return view('users.admin.add_order'); } )->name('admin.add_order');
     Route::resource('usersType', 'CRUD\UsersTypeController');
     Route::resource('users', 'CRUD\UsersController');
+    Route::resource('ordersStatus', 'CRUD\OrdersStatusController');
+    Route::resource('orders', 'CRUD\OrdersController');
 
 });
 

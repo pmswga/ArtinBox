@@ -22,13 +22,17 @@
                 <h2>ArtinBox</h2>
             </a>
             <a href="#addOrder" id="addOrderButton" class="item">Создать заявку</a>
-            <a href="{{ route('users.index') }}" class="item">Пользователи</a>
+            <a href="#addOrder" id="addOrderButton" class="item">Заявки в производстве</a>
+            <a href="#addOrder" id="addOrderButton" class="item">Заявки в процессе</a>
+            <a href="#addOrder" id="addOrderButton" class="item">Архивные заявки</a>
             <div class="right menu">
+                <a href="{{ route('users.index') }}" class="item">Пользователи</a>
                 <div class="ui dropdown item">
                     Настройки
                     <i class="dropdown icon"></i>
                     <div class="menu">
                         <a href="{{ route('usersType.index') }}" class="item">Типы пользователей</a>
+                        <a href="{{ route('ordersStatus.index') }}" class="item">Статусы заявок</a>
                         <a href="#types_2" class="item">Типы коробок</a>
                     </div>
                 </div>
