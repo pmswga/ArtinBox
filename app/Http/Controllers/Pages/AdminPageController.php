@@ -20,4 +20,18 @@ class AdminPageController extends Controller
         ]);
     }
 
+    public function archive()
+    {
+        return view('users.admin.orders.archive', [
+            'orders' => Orders::where('id_author', Auth::user()->id_user)->get(),
+        ]);
+    }
+
+    public function processes()
+    {
+        return view('users.admin.orders.processes', [
+            'orders' => Orders::where('id_author', Auth::user()->id_user)->get(),
+        ]);
+    }
+
 }

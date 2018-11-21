@@ -4,41 +4,8 @@
 
     <div class="ui internally stackable grid">
         <div class="row">
-            <div class="two wide column"></div>
-            @auth
-                <div class="twelve wide column">
-            @else
-                <div class="eight wide column">
-            @endauth
-                <fieldset class="ui segment">
-                    <legend><h3>Новости</h3></legend>
-                    <div class="ui styled accordion" style="width: 100%">
-                        <div class="title">
-                            15.11.2018
-                        </div>
-                        <div class="content">
-                            Content
-                        </div>
-                    </div>
-                    <div class="ui styled accordion" style="width: 100%">
-                        <div class="title">
-                            15.11.2018
-                        </div>
-                        <div class="content">
-                            Content
-                        </div>
-                    </div>
-                    <div class="ui styled accordion" style="width: 100%">
-                        <div class="title">
-                            15.11.2018
-                        </div>
-                        <div class="content">
-                            Content
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            <div class="four wide column">
+            <div class="five wide column"></div>
+            <div class="six wide column">
                 @guest
                     <fieldset class="ui segment">
                         <legend><h3>Войти</h3></legend>

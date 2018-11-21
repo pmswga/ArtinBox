@@ -17,14 +17,12 @@
         <script src="{{ asset('js/semantic.js') }}"></script>
     </head>
     <body>
-        <div class="ui pointing fluid menu">
+        <div class="ui pointing stackable menu">
             <a href="{{ route('admin.index') }}" class="item">
                 <h2>ArtinBox</h2>
             </a>
-            <a href="#addOrder" id="addOrderButton" class="item">Создать заявку</a>
-            <a href="#addOrder" id="addOrderButton" class="item">Заявки в производстве</a>
-            <a href="#addOrder" id="addOrderButton" class="item">Заявки в процессе</a>
-            <a href="#addOrder" id="addOrderButton" class="item">Архивные заявки</a>
+            <a href="{{ route('admin.processes') }}" id="addOrderButton" class="item">Заявки в процессе</a>
+            <a href="{{ route('admin.archive') }}" id="addOrderButton" class="item">Архивные заявки</a>
             <div class="right menu">
                 <a href="{{ route('users.index') }}" class="item">Пользователи</a>
                 <div class="ui dropdown item">
@@ -52,14 +50,10 @@
             </div>
         </div>
     
-        @include('users.admin.modals.add_order')
 
         <script type="text/javascript">
         
             $('.ui.dropdown').dropdown();
-            $('#addOrderButton').on('click', function (){
-                $('#addOrderModal').modal('show');
-            });
 
         </script>
 

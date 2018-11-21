@@ -5,7 +5,33 @@
 
     <div class="ui internally celled grid">
         <div class="row">
-            <div class="ten wide column">
+            <div class="sixteen wide column">
+                <fieldset class="ui segment">
+                    <legend><h3>Создать заявку</h3></legend>
+                    <form class="ui form" method="POST" action="{{ route('orders.store') }}">
+                        @csrf
+
+                        <div class="field">
+                            <label>Тип ящика</label>
+                            <select name="box_type">
+                                @foreach ($boxesTypes as $boxType)
+                                    <option value="{{ $boxType->id_box_type }}">{{ $boxType->caption }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Дата создания заявки</label>
+                            <input type="date" readonly value="{{ date('Y-m-d') }}">
+                        </div>
+                        <div class="field">
+                            <input type="submit" class="ui primary button" value="Создать">
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen wide column">
                 <fieldset class="ui blue segment">
                     <legend><h3>Заявки в производстве</h3></legend>
                     <table class="ui wide table">
@@ -25,7 +51,7 @@
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $order->id_box_type }}</td>
                                     <td>{{ $order->sizes }}</td>
-                                    <td>{{ date('d.m.Y', strtotime($order->create_date)) }}</td>
+                                    <td>{{ $order->getCreateDate() }}</td>
                                     <td>
                                         <form method="POST" action="{{ route('orders.destroy', $order) }}">
                                             @csrf
@@ -35,70 +61,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        </tbody>
-                    </table>
-                </fieldset>
-            </div>
-            <div class="six wide column">
-                <form class="ui form" method="POST" action="{{ route('orders.store') }}">
-                    @csrf
-
-                    <div class="field">
-                        <label>Тип ящика</label>
-                        <select name="box_type">
-                            @foreach ($boxesTypes as $boxType)
-                                <option value="{{ $boxType->id_box_type }}">{{ $boxType->caption }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Дата создания заявки</label>
-                        <input type="date" readonly value="{{ date('Y-m-d') }}">
-                    </div>
-                    <div class="field">
-                        <input type="submit" class="ui primary button" value="Создать">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sixteen wide column">
-                <fieldset class="ui orange segment">
-                    <legend><h3>Заявки в процессе</h3></legend>
-                    <table class="ui wide table">
-                        <thead>
-                            <tr>
-                                <th>№</th>
-                                <th>Тип ящика</th>
-                                <th>Внутренние размеры</th>
-                                <th>Дата создания</th>
-                                <th>Автор</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </fieldset>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sixteen wide column">
-                <fieldset class="ui green segment">
-                    <legend><h3>Архив выполненных заявок</h3></legend>
-                    <table class="ui wide table">
-                        <thead>
-                            <tr>
-                                <th>№</th>
-                                <th>Тип ящика</th>
-                                <th>Внутренние размеры</th>
-                                <th>Дата создания</th>
-                                <th>Дата завершения</th>
-                                <th>Автор</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
                         </tbody>
                     </table>
                 </fieldset>

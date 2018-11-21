@@ -86,12 +86,12 @@ class OrdersController extends Controller
      */
     public function destroy(Orders $orders)
     {
-        
+        $orders->delete();
         echo "<pre>";
         print_r($orders->id_order);
         echo "</pre>";
         
         // $orders->delete();
-        // return back();
+        return back();
     }
 }
