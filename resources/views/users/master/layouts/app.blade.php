@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="ui pointing fluid menu">
-            <a href="{{ route('admin.index') }}" class="item">
+            <a href="{{ route('master.index') }}" class="item">
                 <h2>ArtinBox</h2>
             </a>
             <div class="right menu">
@@ -37,15 +37,10 @@
                 </div>
             </div>
         </div>
-    
-        @include('users.admin.modals.add_order')
 
         <script type="text/javascript">
         
             $('.ui.dropdown').dropdown();
-            $('#addOrderButton').on('click', function (){
-                $('#addOrderModal').modal('show');
-            });
 
         </script>
 

@@ -25,14 +25,7 @@
             <a href="{{ route('manager.index') }}" class="item">
                 <h2>ArtinBox</h2>
             </a>
-            <div class="ui dropdown item">
-                Заявки
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a id="addOrder" href="#addOrder" class="item">Создать заявку</a>
-                    <a href="{{ route('manager.orders') }}" class="item">Архив</a>
-                </div>
-            </div>
+            <a href="{{ route('manager.processes') }}" class="item">Заявки в процессе</a>
             <div class="right menu">
                 @auth
                     @include('auth.components.logout_button')
@@ -92,11 +85,6 @@
         <script type="text/javascript">
         
             $('.ui.dropdown').dropdown();
-
-            $('#addOrder').on('click', function () {
-                $('#addOrderModal').modal('show');
-            });
-
 
         </script>
 

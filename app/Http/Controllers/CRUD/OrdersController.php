@@ -4,6 +4,7 @@ namespace App\Http\Controllers\CRUD;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class OrdersController extends Controller
@@ -25,15 +26,7 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        Order::create([
-            'id_box_type' => $request['box_type'],
-            'sizes' => 'json',
-            'create_date' => date('Y-m-d'),
-            'id_author' => Auth::user()->id_user,
-            'id_order_status' => 1
-        ]);
 
-        return back();
     }
 
     /**
@@ -44,7 +37,15 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Order::create([
+            'id_box_type' => $request['box_type'],
+            'sizes' => 'json',
+            'create_date' => date('Y-m-d'),
+            'id_author' => Auth::user()->id_user,
+            'id_order_status' => 1
+        ]);
+
+        return back();
     }
 
     /**

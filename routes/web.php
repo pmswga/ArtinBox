@@ -4,6 +4,8 @@ Auth::routes();
 
 Route::get('/', 'MainController@index')->name('index');
 
+Route::resource('orders', 'CRUD\OrdersController');
+
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']], function (){
 
     Route::get('/', 'Pages\AdminPageController@index')->name('admin.index');
@@ -13,19 +15,21 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']],
     Route::resource('usersType', 'CRUD\UsersTypeController');
     Route::resource('users', 'CRUD\UsersController');
     Route::resource('ordersStatus', 'CRUD\OrdersStatusController');
-    Route::resource('orders', 'CRUD\OrdersController');
 
 });
 
 Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'checkManagerUser']], function (){
 
-    Route::get('/', function () { return view('users.manager.index'); })->name('manager.index');
+    Route::get('/', 'Pages\ManagerPageController@index')->name('manager.index');
     Route::get('/orders', function () { return view('users.manager.orders'); } )->name('manager.orders');
+    Route::get('/processes', 'Pages\ManagerPageController@processes')->name('manager.processes');
 
+    
 });
 
 Route::group(['prefix' => '/master', 'middleware' => ['auth', 'checkMasterUser']], function (){
 
-    Route::get('/', function () { return view('users.master.index'); })->name('master.index');
+    Route::get('/', 'Pages\MasterPageController@index')->name('master.index');
+
 
 });
