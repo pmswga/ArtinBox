@@ -21,6 +21,7 @@
             <a href="{{ route('master.index') }}" class="item">
                 <h2>ArtinBox</h2>
             </a>
+            <a href="{{ route('master.orders') }}" class="item">Мои заявки</a>
             <div class="right menu">
                 @auth
                     @include('auth.components.logout_button')

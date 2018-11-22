@@ -79,7 +79,12 @@ class OrdersController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $order->id_master = Auth::user()->id_user;
+        
+        // print_r($order->id_master);
+        $order->update();
+
+        return back();
     }
 
     /**

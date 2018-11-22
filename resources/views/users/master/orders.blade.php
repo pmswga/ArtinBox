@@ -1,5 +1,5 @@
 @extends('users.master.layouts.app')
-@slot('title') Панель мастера @endslot
+@section('title') Мои заявки @endsection
 
 @section('content')
 

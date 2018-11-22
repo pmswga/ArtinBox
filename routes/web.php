@@ -30,6 +30,7 @@ Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'checkManagerUser
 Route::group(['prefix' => '/master', 'middleware' => ['auth', 'checkMasterUser']], function (){
 
     Route::get('/', 'Pages\MasterPageController@index')->name('master.index');
+    Route::get('/orders', 'Pages\MasterPageController@orders' )->name('master.orders');
 
 
 });

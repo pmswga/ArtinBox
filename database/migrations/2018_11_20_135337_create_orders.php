@@ -20,6 +20,7 @@ class CreateOrders extends Migration
             $table->datetime('create_date');
             $table->integer('id_author');
             $table->integer('id_order_status');
+            $table->integer('id_master')->nullable();
         });
     }
 
