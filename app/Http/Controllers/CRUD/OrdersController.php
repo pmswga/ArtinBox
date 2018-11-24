@@ -37,9 +37,10 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
+
         Order::create([
             'id_box_type' => $request['box_type'],
-            'sizes' => 'json',
+            'sizes' => $request['sizes'],
             'create_date' => date('Y-m-d'),
             'id_author' => Auth::user()->id_user,
             'id_order_status' => 1

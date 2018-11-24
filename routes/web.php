@@ -15,6 +15,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']],
     Route::resource('usersType', 'CRUD\UsersTypeController');
     Route::resource('users', 'CRUD\UsersController');
     Route::resource('ordersStatus', 'CRUD\OrdersStatusController');
+    Route::resource('boxesTypes', 'CRUD\BoxesTypeController');
 
 });
 

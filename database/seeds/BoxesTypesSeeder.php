@@ -4,11 +4,7 @@ use Illuminate\Database\Seeder;
 
 class BoxesTypesSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         DB::table('boxestype')->insert([
@@ -17,6 +13,12 @@ class BoxesTypesSeeder extends Seeder
             ],
             [
                 'caption' => 'Стандартный'
+            ],
+            [
+                'caption' => 'Музейный'
+            ],
+            [
+                'caption' => 'Железный'
             ],
         ]);
     }

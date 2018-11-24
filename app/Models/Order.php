@@ -20,6 +20,27 @@ class Order extends Model
         return $this->hasOne(BoxesType::class, 'id_box_type', 'id_box_type')->first()['caption'];
     }
 
+    public function getSizes()
+    {
+        $json = json_decode($this->sizes, true);
+
+        return $json;
+        // return new class ($json) {
+        //     private $json;
+
+        //     public function __construct($json)
+        //     {
+        //         $this->json = $json;
+        //     }
+
+        //     public function getLenght()
+        //     {
+        //         return $this->json['L'];
+        //     }
+
+        // };
+    }
+
     public function getCreateDate()
     {
         return date('d.m.Y', strtotime($this->create_date));

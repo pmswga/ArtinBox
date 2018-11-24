@@ -15,7 +15,9 @@ class BoxesTypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('users.admin.types.boxes.index', [
+            'boxesTypes' => BoxesType::get()
+        ]);
     }
 
     /**

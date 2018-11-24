@@ -11,6 +11,7 @@
 
         <!-- Scripts -->
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/calculators.js') }}"></script>
 
         <!-- Semantic UI -->
         <link href="{{ asset('css/semantic.css') }}" rel="stylesheet">
@@ -31,7 +32,7 @@
                     <div class="menu">
                         <a href="{{ route('usersType.index') }}" class="item">Типы пользователей</a>
                         <a href="{{ route('ordersStatus.index') }}" class="item">Статусы заявок</a>
-                        <a href="#types_2" class="item">Типы коробок</a>
+                        <a href="{{ route('boxesTypes.index') }}" class="item">Типы коробок</a>
                     </div>
                 </div>
                 @auth
