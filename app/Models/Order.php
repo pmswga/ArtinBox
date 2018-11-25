@@ -22,31 +22,25 @@ class Order extends Model
 
     public function getSizes()
     {
-        $json = json_decode($this->sizes, true);
-
-        return $json;
-        // return new class ($json) {
-        //     private $json;
-
-        //     public function __construct($json)
-        //     {
-        //         $this->json = $json;
-        //     }
-
-        //     public function getLenght()
-        //     {
-        //         return $this->json['L'];
-        //     }
-
-        // };
+        return json_decode($this->sizes, true);
     }
 
     public function getAuthor()
     {
         return $this::hasOne('App\User', 'id_user', 'id_author')->first()['name'];
     }
+    
+    public function getMaster()
+    {
+        return $this::hasOne('App\User', 'id_user', 'id_master')->first()['name'];
+    }
 
     public function getCreateDate()
+    {
+        return date('d.m.Y', strtotime($this->create_date));
+    }
+
+    public function getFinishDate()
     {
         return date('d.m.Y', strtotime($this->create_date));
     }

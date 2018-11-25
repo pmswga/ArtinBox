@@ -16,7 +16,7 @@ class CreateOrders extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id_order');
             $table->integer('id_box_type');
-            $table->string('sizes');
+            $table->json('sizes');
             $table->datetime('create_date');
             $table->integer('id_author');
             $table->integer('id_order_status');

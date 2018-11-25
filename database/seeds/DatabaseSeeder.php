@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             BoxesTypesSeeder::class,
             OrdersStatusSeeder::class,
+            MaterialsTypeSeeder::class,
         ]);
     }
 }

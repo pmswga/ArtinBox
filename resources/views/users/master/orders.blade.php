@@ -52,6 +52,7 @@
                                         <table class="ui table">
                                             <thead>
                                                 <tr>
+                                                    <th></th>
                                                     <th>Деталь</th>
                                                     <th>Обозначение</th>
                                                     <th>Количество</th>
@@ -63,112 +64,124 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td>Крышка</td>
                                                     <td>A</td>
                                                     <td>AN</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['AN'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['AN']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['AN']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['AN']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['AN']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['AN']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Панель B</td>
                                                     <td>B</td>
                                                     <td>BN</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['BN'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['BN']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['BN']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['BN']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['BN']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['BN']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Панель С</td>
                                                     <td>C</td>
                                                     <td>CN</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['CN'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['CN']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['CN']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['CN']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['CN']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['CN']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Дно</td>
                                                     <td>D</td>
                                                     <td>DN</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['DN'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['DN']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['DN']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['DN']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['DN']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['DN']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Лыжи</td>
                                                     <td>E</td>
                                                     <td>EN</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['EN'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['EN']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['EN']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['EN']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['EN']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['EN']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Ручки</td>
                                                     <td>F</td>
                                                     <td>FN</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['FN'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['FN']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['FN']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['FN']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['FN']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['FN']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Обвязка</td>
                                                     <td>O1</td>
                                                     <td>O1N</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['O1N'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O1N']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O1N']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O1N']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O1N']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O1N']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td></td>
                                                     <td>O2</td>
                                                     <td>O2N</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['O2N'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O2N']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O2N']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O2N']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O2N']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O2N']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td></td>
                                                     <td>O3</td>
                                                     <td>O3N</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['O3N'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O3N']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O3N']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O3N']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O3N']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O3N']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td></td>
                                                     <td>O4</td>
                                                     <td>O4N</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['O4N'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O4N']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O4N']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O4N']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O4N']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O4N']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td></td>
                                                     <td>O5</td>
                                                     <td>O5N</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['O5N'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O5N']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O5N']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O5N']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O5N']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O5N']['material'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td></td>
                                                     <td>06</td>
                                                     <td>O6N</td>
-                                                    <td></td>
-                                                    <td>{{ $order->getSizes()['O6N'] }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O6N']['count'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O6N']['size_1'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O6N']['size_2'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O6N']['desg'] }}</td>
+                                                    <td>{{ $order->getSizes()['sizes']['ON']['O6N']['material'] }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

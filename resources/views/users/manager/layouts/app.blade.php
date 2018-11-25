@@ -11,6 +11,7 @@
 
         <!-- Scripts -->
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/calculators.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -22,10 +23,11 @@
     </head>
     <body>
         <div class="ui pointing menu">
-            <a href="{{ route('manager.index') }}" class="item">
+            <a class="item">
                 <h2>ArtinBox</h2>
             </a>
-            <a href="{{ route('manager.processes') }}" class="item">Заявки в процессе</a>
+            <a href="{{ route('manager.index') }}" class="item">Главная</a>
+            <a href="{{ route('manager.production') }}" class="item">Заявки в производстве</a>
             <div class="right menu">
                 @auth
                     @include('auth.components.logout_button')

@@ -18,9 +18,10 @@
     </head>
     <body>
         <div class="ui pointing fluid menu">
-            <a href="{{ route('master.index') }}" class="item">
+            <a class="item">
                 <h2>ArtinBox</h2>
             </a>
+            <a href="{{ route('master.index') }}" class="item">Главная</a>
             <a href="{{ route('master.orders') }}" class="item">Мои заявки</a>
             <div class="right menu">
                 @auth

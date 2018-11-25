@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Models\BoxesType;
+use App\Models\MaterialsType;
 use App\Models\Order;
 
 class AdminPageController extends Controller
@@ -16,6 +17,7 @@ class AdminPageController extends Controller
     {
         return view('users.admin.index', [
             'boxesTypes' => BoxesType::get(),
+            'materialsTypes' => MaterialsType::get()->first(),
             'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
         ]);
     }

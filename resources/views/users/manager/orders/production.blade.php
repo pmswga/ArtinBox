@@ -1,5 +1,5 @@
-@extends('users.admin.layouts.app')
-@section('title') Заявки в производстве @endsection
+@extends('users.manager.layouts.app')
+@section('title') Заявки в процессе @endsection
 
 @section('content')
 
@@ -7,7 +7,7 @@
         <div class="row">
             <div class="sixteen wide column">
                 <fieldset class="ui orange segment">
-                    <legend><h3>Заявки в производстве</h3></legend>
+                    <legend><h3>Заявки в процессе</h3></legend>
                     @if ($orders->count() != 0)
                         <table class="ui wide table">
                             <thead>
@@ -28,8 +28,6 @@
                                         <td>{{ $order->getBoxType() }}</td>
                                         <td>{{ $order->sizes }}</td>
                                         <td>{{ $order->getCreateDate() }}</td>
-                                        <td>{{ $order->getFinishDate() }}</td>
-                                        <td>{{ $order->getMaster() }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
