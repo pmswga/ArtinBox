@@ -9,16 +9,22 @@ class BoxesTypesSeeder extends Seeder
     {
         DB::table('boxestype')->insert([
             [
+                'caption' => 'Стандартный (крышка сверху)'
+            ],
+            [
+                'caption' => 'Стандартный (с обвязкой)'
+            ],
+            [
                 'caption' => 'Живописный'
             ],
             [
-                'caption' => 'Стандартный'
+                'caption' => 'Железный'
+            ],
+            [
+                'caption' => 'Климатический'
             ],
             [
                 'caption' => 'Музейный'
-            ],
-            [
-                'caption' => 'Железный'
             ],
         ]);
     }

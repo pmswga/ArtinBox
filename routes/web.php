@@ -9,8 +9,9 @@ Route::resource('orders', 'CRUD\OrdersController');
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']], function (){
 
     Route::get('/', 'Pages\AdminPageController@index')->name('admin.index');
-    Route::get('/archive', 'Pages\AdminPageController@archive')->name('admin.archive');
+    Route::get('/production', 'Pages\AdminPageController@production')->name('admin.production');
     Route::get('/processes', 'Pages\AdminPageController@processes')->name('admin.processes');
+    Route::get('/archive', 'Pages\AdminPageController@archive')->name('admin.archive');
     
     Route::resource('usersType', 'CRUD\UsersTypeController');
     Route::resource('users', 'CRUD\UsersController');
