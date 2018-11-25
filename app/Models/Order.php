@@ -41,6 +41,11 @@ class Order extends Model
         // };
     }
 
+    public function getAuthor()
+    {
+        return $this::hasOne('App\User', 'id_user', 'id_author')->first()['name'];
+    }
+
     public function getCreateDate()
     {
         return date('d.m.Y', strtotime($this->create_date));
