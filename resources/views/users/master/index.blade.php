@@ -34,7 +34,7 @@
                                             @csrf
                                             @method('PUT')
 
-                                            <input type="submit" class="ui primary button" value="Назначить себе">
+                                            <input type="submit" id="assgin" class="ui primary button" value="Назначить себе">
                                         </form>
                                     </td>
                                 </tr>
@@ -45,5 +45,13 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+
+        $('#assgin').on('click', function () {
+            alert("Производство началось");
+        });
+
+    </script>
 
 @endsection
