@@ -565,7 +565,7 @@
             calc.setS3(JSON.parse($("[name='stBoxS3']").val()));
             calc.setW0(parseInt($("[name='stBoxW0']").val()));
 
-            $("[name='sizes']:eq(1)").attr('value', calc.getSizes());
+            $("[name='sizes']:first()").attr('value', calc.getSizes());
         });
 
         $('[name="createPicturesOrder"]').on('submit', function () {
@@ -577,7 +577,7 @@
             calc2.setS2(JSON.parse($("[name='picturesBoxS2']").val()));
             calc2.setS3(JSON.parse($("[name='picturesBoxS3']").val()));
 
-            $("[name='sizes']:eq(2)").attr('value', calc2.getSizes());
+            $("[name='sizes']:last()").attr('value', calc2.getSizes());
         });
 
     </script>

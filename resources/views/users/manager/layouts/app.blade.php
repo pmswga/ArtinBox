@@ -12,6 +12,7 @@
         <!-- Scripts -->
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/calculators.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/calcs/calc2.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
