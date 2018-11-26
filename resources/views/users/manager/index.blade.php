@@ -566,6 +566,7 @@
             calc.setW0(parseInt($("[name='stBoxW0']").val()));
 
             $("[name='sizes']:first()").attr('value', calc.getSizes());
+            alert("Производство началось");
         });
 
         $('[name="createPicturesOrder"]').on('submit', function () {
@@ -578,6 +579,7 @@
             calc2.setS3(JSON.parse($("[name='picturesBoxS3']").val()));
 
             $("[name='sizes']:last()").attr('value', calc2.getSizes());
+            alert("Производство началось");
         });
 
     </script>
