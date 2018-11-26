@@ -14,10 +14,9 @@
                                 <tr>
                                     <th>№</th>
                                     <th>Тип ящика</th>
-                                    <th>Внутренние размеры</th>
+                                    <th>Внутренние размеры (длина, ширина, высота)</th>
                                     <th>Дата создания</th>
-                                    <th>Дата завершения</th>
-                                    <th>Мастер</th>
+                                    <th>Действие</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -26,8 +25,15 @@
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $order->getBoxType() }}</td>
-                                        <td>{{ $order->sizes }}</td>
+                                        <td>{{ $order->getSizes()['L']." мм, ".$order->getSizes()['W']." мм, ".$order->getSizes()['H']." мм" }}</td>
                                         <td>{{ $order->getCreateDate() }}</td>
+                                        <td>
+                                            <form method="POST" action="{{ route('orders.destroy', $order) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class="ui red button" value="Удалить">
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

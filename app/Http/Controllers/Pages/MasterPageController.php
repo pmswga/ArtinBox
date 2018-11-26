@@ -24,7 +24,7 @@ class MasterPageController extends Controller
     public function orders()
     {
         $whereOrders = [
-            ['id_order_status', '=', 1],
+            ['id_order_status', '=', 2],
             ['id_master', '=', Auth::user()->id_user]
         ];
 

@@ -80,7 +80,8 @@ class OrdersController extends Controller
     public function update(Request $request, Order $order)
     {
         $order->id_master = Auth::user()->id_user;
-        $order->start_date = date("Y-m-d h:i:s");
+        $order->id_order_status = 2;
+        $order->start_date = date("Y-m-d H:i:s");
         
         $order->update();
 

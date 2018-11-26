@@ -43,7 +43,7 @@
                                     <select name="S1">
                                         <option value="{{ $materialsTypes->getMaterial('PLYWOOD_6') }}">{{ $materialsTypes->getData()['PLYWOOD_6']['material'] }} </option>
                                         <option value="{{ $materialsTypes->getMaterial('PLYWOOD_15') }}">{{ $materialsTypes->getData()['PLYWOOD_15']['material'] }}</option>
-                                        <option value="{{ $materialsTypes->getMaterial('PLYWOOD_18') }}">Фанера 18</option>
+                                        <option value="{{ $materialsTypes->getMaterial('PLYWOOD_18') }}">{{ $materialsTypes->getData()['PLYWOOD_18']['material'] }}</option>
                                     </select>
                                 </div>
                                 <div class="field">

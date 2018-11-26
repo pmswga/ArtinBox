@@ -16,7 +16,9 @@
                                     <th>Тип ящика</th>
                                     <th>Внутренние размеры</th>
                                     <th>Дата создания</th>
-                                    <th>Дата завершения</th>
+                                    <th>Дата начала процесса</th>
+                                    <th>Дата окончания процесса</th>
+                                    <th>Затрачено времени</th>
                                     <th>Мастер</th>
                                 </tr>
                             </thead>
@@ -26,8 +28,12 @@
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $order->getBoxType() }}</td>
-                                        <td>{{ $order->sizes }}</td>
+                                        <td>{{ $order->getSizes()['L']." мм, ".$order->getSizes()['W']." мм, ".$order->getSizes()['H']." мм" }}</td>
                                         <td>{{ $order->getCreateDate() }}</td>
+                                        <td>{{ $order->getStartDate() }}</td>
+                                        <td>{{ $order->getFinishDate() }}</td>
+                                        <td>{{ $order->getProcessTime() }}</td>
+                                        <td>{{ $order->getMaster() }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

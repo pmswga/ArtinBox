@@ -43,15 +43,15 @@ class Order extends Model
     public function getProcessTime()
     {
         if (($this->start_date != null) && ($this->finish_date != null)) {
-            return date('h:i:s', strtotime($this->finish_date) - strtotime($this->start_date));
+            return date('H:i:s', strtotime($this->finish_date) - strtotime($this->start_date));
         } else {
-            return 0;
+            return date('H:i:s', time() - strtotime($this->start_date));
         }
     }
 
     public function getStartDate()
     {
-        return date('d.m.Y h:i:s', strtotime($this->start_date));
+        return date('d.m.Y H:i:s', strtotime($this->start_date));
     }
 
     public function getFinishDate()

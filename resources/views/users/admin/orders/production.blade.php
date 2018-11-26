@@ -14,10 +14,9 @@
                                 <tr>
                                     <th>№</th>
                                     <th>Тип ящика</th>
-                                    <th>Внутренние размеры</th>
+                                    <th>Внутренние размеры (длина, ширина, высота)</th>
                                     <th>Дата создания</th>
-                                    <th>Дата завершения</th>
-                                    <th>Мастер</th>
+                                    <th>Действие</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -26,16 +25,21 @@
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $order->getBoxType() }}</td>
-                                        <td>{{ $order->sizes }}</td>
+                                        <td>{{ $order->getSizes()['L']." мм, ".$order->getSizes()['W']." мм, ".$order->getSizes()['H']." мм" }}</td>
                                         <td>{{ $order->getCreateDate() }}</td>
-                                        <td>{{ $order->getFinishDate() }}</td>
-                                        <td>{{ $order->getMaster() }}</td>
+                                        <td>
+                                            <form method="POST" action="{{ route('orders.destroy', $order) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class="ui red button" value="Удалить">
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     @else
-                        <h2>Заявок, которые находятся в процессе нет</h2>
+                        <h2>Заявок, которые находятся в производстве нет</h2>
                     @endif
                 </fieldset>
             </div>

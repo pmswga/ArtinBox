@@ -78,7 +78,6 @@
                             <div class="field">
                                 <input type="hidden" name="box_type" value="1">
                                 <input type="hidden" name="sizes" value="">
-                                <a id="evaluate" class="ui green button">Рассчитать размеры</a>
                                 <input type="submit" class="ui primary button" value="Отправить на производство">
                             </div>
                         </form>

@@ -20,6 +20,18 @@ class ManagerPageController extends Controller
         ]);
     }
 
+    public function processes()
+    {
+        $whereClause = [
+            ['id_author', '=', Auth::user()->id_user],
+            ['id_order_status', '=', 2],
+        ];
+
+        return view('users.manager.orders.processes', [
+            'orders' => Order::where($whereClause)->get(),
+        ]);
+    }
+
     public function production()
     {
         $whereClause = [

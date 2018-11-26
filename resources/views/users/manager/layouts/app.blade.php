@@ -28,6 +28,7 @@
             </a>
             <a href="{{ route('manager.index') }}" class="item">Главная</a>
             <a href="{{ route('manager.production') }}" class="item">Заявки в производстве</a>
+            <a href="{{ route('manager.processes') }}" class="item">Заявки в процессе</a>
             <div class="right menu">
                 @auth
                     @include('auth.components.logout_button')
