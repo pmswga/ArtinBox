@@ -36,11 +36,11 @@ class MaterialsTypeSeeder extends Seeder
                     },
                     "WOOD_20": {
                         "size": 20,
-                        "material": "Дерево 20"
+                        "material": "Доска 20"
                     },
                     "WOOD_30": {
                         "size": 30,
-                        "material": "Дерево 30"
+                        "material": "Доска 30"
                     }
                 }'
             ]
