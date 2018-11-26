@@ -46,6 +46,23 @@
                                                     <td>{{ $order->getSizes()['H'] }}</td>
                                                 </tr>
                                             </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3">Сроки</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2">Дата начала производства</th>
+                                                    <td>{{ $order->getStartDate() }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2">Дата окончания производства</th>
+                                                    <td>{{ $order->getFinishDate() }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2">Время производства</th>
+                                                    <td>{{ $order->getProcessTime() }}</td>
+                                                </tr>
+                                            </thead>
                                         </table>
                                     </div>
                                     <div class="ten wide column">

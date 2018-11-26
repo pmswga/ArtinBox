@@ -9,9 +9,6 @@
                 
                 <fieldset class="ui green segment">
                     <legend>Доступные заявки</legend>
-
-
-
                     <table class="ui wide table">
                         <thead>
                             <tr>

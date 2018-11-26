@@ -78,14 +78,13 @@
                             <div class="field">
                                 <input type="hidden" name="box_type" value="1">
                                 <input type="hidden" name="sizes" value="">
-                                <a id="evaluate" class="ui green button">Рассчитать размеры</a>
                                 <input type="submit" class="ui primary button" value="Отправить на производство">
                             </div>
                         </form>
                     </fieldset>
                     <fieldset class="ui form segment">
                         <legend><h3>Характеристика ящика</h3></legend>
-                        <table class="ui table">
+                        <table class="ui table" id="standartBoxTypeTable">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -365,90 +364,6 @@
             calc.setW0(parseInt($("[name='W0']").val()));
 
             $("[name='sizes']").attr('value', calc.getSizes());
-        });
-
-        $('[id="evaluate"]').on('click', function () {
-            calc.setL(parseInt($("[name='L']").val()));
-            calc.setW(parseInt($("[name='W']").val()));
-            calc.setH(parseInt($("[name='H']").val()));
-
-            calc.setS1(JSON.parse($("[name='S1']").val()));
-            calc.setS2(JSON.parse($("[name='S2']").val()));
-            calc.setS3(JSON.parse($("[name='S3']").val()));
-            calc.setW0(parseInt($("[name='W0']").val()));
-            
-            let sizes = JSON.parse(calc.getSizes());
-
-
-            //Fill first column
-            $('tbody tr:eq(0) td:eq(3)').text(sizes.sizes.AN.count);
-            $('tbody tr:eq(1) td:eq(3)').text(sizes.sizes.BN.count);
-            $('tbody tr:eq(2) td:eq(3)').text(sizes.sizes.CN.count);
-            $('tbody tr:eq(3) td:eq(3)').text(sizes.sizes.DN.count);
-            $('tbody tr:eq(4) td:eq(3)').text(sizes.sizes.EN.count);
-            $('tbody tr:eq(5) td:eq(3)').text(sizes.sizes.FN.count);
-            $('tbody tr:eq(6) td:eq(3)').text(sizes.sizes.ON.O1N.count);
-            $('tbody tr:eq(7) td:eq(3)').text(sizes.sizes.ON.O2N.count);
-            $('tbody tr:eq(8) td:eq(3)').text(sizes.sizes.ON.O3N.count);
-            $('tbody tr:eq(9) td:eq(3)').text(sizes.sizes.ON.O4N.count);
-            $('tbody tr:eq(10) td:eq(3)').text(sizes.sizes.ON.O5N.count);
-            $('tbody tr:eq(11) td:eq(3)').text(sizes.sizes.ON.O6N.count);
-
-            //Fill second column
-            $('tbody tr:eq(0) td:eq(4)').text(sizes.sizes.AN.size_1);
-            $('tbody tr:eq(1) td:eq(4)').text(sizes.sizes.BN.size_1);
-            $('tbody tr:eq(2) td:eq(4)').text(sizes.sizes.CN.size_1);
-            $('tbody tr:eq(3) td:eq(4)').text(sizes.sizes.DN.size_1);
-            $('tbody tr:eq(4) td:eq(4)').text(sizes.sizes.EN.size_1);
-            $('tbody tr:eq(5) td:eq(4)').text(sizes.sizes.FN.size_1);
-            $('tbody tr:eq(6) td:eq(4)').text(sizes.sizes.ON.O1N.size_1);
-            $('tbody tr:eq(7) td:eq(4)').text(sizes.sizes.ON.O2N.size_1);
-            $('tbody tr:eq(8) td:eq(4)').text(sizes.sizes.ON.O3N.size_1);
-            $('tbody tr:eq(9) td:eq(4)').text(sizes.sizes.ON.O4N.size_1);
-            $('tbody tr:eq(10) td:eq(4)').text(sizes.sizes.ON.O5N.size_1);
-            $('tbody tr:eq(11) td:eq(4)').text(sizes.sizes.ON.O6N.size_1);
-
-            //Fill third column
-            $('tbody tr:eq(0) td:eq(5)').text(sizes.sizes.AN.size_2);
-            $('tbody tr:eq(1) td:eq(5)').text(sizes.sizes.BN.size_2);
-            $('tbody tr:eq(2) td:eq(5)').text(sizes.sizes.CN.size_2);
-            $('tbody tr:eq(3) td:eq(5)').text(sizes.sizes.DN.size_2);
-            $('tbody tr:eq(4) td:eq(5)').text(sizes.sizes.EN.size_2);
-            $('tbody tr:eq(5) td:eq(5)').text(sizes.sizes.FN.size_2);
-            $('tbody tr:eq(6) td:eq(5)').text(sizes.sizes.ON.O1N.size_2);
-            $('tbody tr:eq(7) td:eq(5)').text(sizes.sizes.ON.O2N.size_2);
-            $('tbody tr:eq(8) td:eq(5)').text(sizes.sizes.ON.O3N.size_2);
-            $('tbody tr:eq(9) td:eq(5)').text(sizes.sizes.ON.O4N.size_2);
-            $('tbody tr:eq(10) td:eq(5)').text(sizes.sizes.ON.O5N.size_2);
-            $('tbody tr:eq(11) td:eq(5)').text(sizes.sizes.ON.O6N.size_2);
-
-            //Fill fourth column
-            $('tbody tr:eq(0) td:eq(6)').text(sizes.sizes.AN.desg);
-            $('tbody tr:eq(1) td:eq(6)').text(sizes.sizes.BN.desg);
-            $('tbody tr:eq(2) td:eq(6)').text(sizes.sizes.CN.desg);
-            $('tbody tr:eq(3) td:eq(6)').text(sizes.sizes.DN.desg);
-            $('tbody tr:eq(4) td:eq(6)').text(sizes.sizes.EN.desg);
-            $('tbody tr:eq(5) td:eq(6)').text(sizes.sizes.FN.desg);
-            $('tbody tr:eq(6) td:eq(6)').text(sizes.sizes.ON.O1N.desg);
-            $('tbody tr:eq(7) td:eq(6)').text(sizes.sizes.ON.O2N.desg);
-            $('tbody tr:eq(8) td:eq(6)').text(sizes.sizes.ON.O3N.desg);
-            $('tbody tr:eq(9) td:eq(6)').text(sizes.sizes.ON.O4N.desg);
-            $('tbody tr:eq(10) td:eq(6)').text(sizes.sizes.ON.O5N.desg);
-            $('tbody tr:eq(11) td:eq(6)').text(sizes.sizes.ON.O6N.desg);
-
-            //Fill fifth column
-            $('tbody tr:eq(0) td:eq(7)').text(sizes.sizes.AN.material);
-            $('tbody tr:eq(1) td:eq(7)').text(sizes.sizes.BN.material);
-            $('tbody tr:eq(2) td:eq(7)').text(sizes.sizes.CN.material);
-            $('tbody tr:eq(3) td:eq(7)').text(sizes.sizes.DN.material);
-            $('tbody tr:eq(4) td:eq(7)').text(sizes.sizes.EN.material);
-            $('tbody tr:eq(5) td:eq(7)').text(sizes.sizes.FN.material);
-            $('tbody tr:eq(6) td:eq(7)').text(sizes.sizes.ON.O1N.material);
-            $('tbody tr:eq(7) td:eq(7)').text(sizes.sizes.ON.O2N.material);
-            $('tbody tr:eq(8) td:eq(7)').text(sizes.sizes.ON.O3N.material);
-            $('tbody tr:eq(9) td:eq(7)').text(sizes.sizes.ON.O4N.material);
-            $('tbody tr:eq(10) td:eq(7)').text(sizes.sizes.ON.O5N.material);
-            $('tbody tr:eq(11) td:eq(7)').text(sizes.sizes.ON.O6N.material);
         });
 
     </script>

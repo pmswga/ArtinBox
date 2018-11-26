@@ -40,9 +40,25 @@ class Order extends Model
         return date('d.m.Y', strtotime($this->create_date));
     }
 
+    public function getProcessTime()
+    {
+        if (($this->start_date != null) && ($this->finish_date != null)) {
+            return date('h:i:s', strtotime($this->finish_date) - strtotime($this->start_date));
+        } else {
+            return 0;
+        }
+    }
+
+    public function getStartDate()
+    {
+        return date('d.m.Y h:i:s', strtotime($this->start_date));
+    }
+
     public function getFinishDate()
     {
-        return date('d.m.Y', strtotime($this->create_date));
+        if ($this->finish_date != null) {
+            return date('d.m.Y h:i:s', strtotime($this->finish_date));
+        }
     }
 
 }
