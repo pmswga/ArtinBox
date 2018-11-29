@@ -24,9 +24,10 @@
             </div>
             <div class="right menu">
                 @auth
+                    <div class="header item">
+                        Пользователь: {{ Auth::user()->name }}
+                    </div>
                     @include('auth.components.logout_button')
-                @else
-                    <a href="#" class="item">Exit</a>
                 @endauth
             </div>
         </div>
