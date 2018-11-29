@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name') }}</title>
+        <title>ArtinBox | Главная</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/jquery.js') }}"></script>
@@ -23,14 +23,14 @@
     <body>
 
         <div class="ui pointing stackable menu">
-            <a href="{{ route('index') }}" class="item">
+            <div href="{{ route('index') }}" class="header item">
                 <h2>
                     ArtinBox
                     @auth
                         | {{ Auth::user()->getUserType() }}
                     @endauth
                 </h2>
-            </a>
+            </div>
             <div class="right menu">
                 @auth
                     <a class="item" href="{{ route('logout') }}"

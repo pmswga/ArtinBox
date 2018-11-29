@@ -21,14 +21,14 @@ class MasterPageController extends Controller
         ]);
     }
 
-    public function orders()
+    public function production()
     {
         $whereOrders = [
             ['id_order_status', '=', 2],
             ['id_master', '=', Auth::user()->id_user]
         ];
 
-        return view('users.master.orders', [
+        return view('users.master.production', [
             'orders' => Order::where($whereOrders)->get()
         ]);
     }

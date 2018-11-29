@@ -1,11 +1,9 @@
 @extends('users.master.layouts.app')
 @section('title') Мои заявки @endsection
+@section('caption') В производстве @endsection
 
 @section('content')
 
-    <div class="ui internally celled grid">
-        <div class="row">
-            <div class="sixteen wide column">
                 <div class="ui styled accordion" style="width: 100%">
                     @php $i = 1 @endphp
                     @foreach ($orders as $order)
@@ -347,9 +345,6 @@
                         @endswitch
                     @endforeach
                 </div>
-            </div>
-        </div>
-    </div>
 
     <script type="text/javascript">
 
