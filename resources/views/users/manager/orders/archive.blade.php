@@ -1,4 +1,4 @@
-@extends('users.admin.layouts.app')
+@extends('users.manager.layouts.app')
 @section('title') Панель администратора @endsection
 @section('caption') Архив @endsection
 

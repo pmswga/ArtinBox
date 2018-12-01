@@ -11,6 +11,7 @@ use App\Models\Order;
 
 class ManagerPageController extends Controller
 {
+    
     public function index()
     {
         return view('users.manager.index', [
@@ -43,4 +44,28 @@ class ManagerPageController extends Controller
             'orders' => Order::where($whereClause)->get(),
         ]);
     }
+
+    public function archive()
+    {
+        $whereClause = [
+            ['id_author', '=', Auth::user()->id_user],
+            ['id_order_status', '=', 1],
+        ];
+
+        return view('users.manager.orders.archive', [
+            'orders' => Order::where($whereClause)->get(),
+        ]);
+        
+    }
+
+    
+    public function create()
+    {
+        return view('users.admin.orders.create', [
+            'boxesTypes' => BoxesType::get(),
+            'materialsTypes' => MaterialsType::get()->first(),
+            'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
+        ]);
+    }
+
 }

@@ -12,6 +12,8 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']],
     Route::get('/production', 'Pages\AdminPageController@production')->name('admin.production');
     Route::get('/processes', 'Pages\AdminPageController@processes')->name('admin.processes');
     Route::get('/archive', 'Pages\AdminPageController@archive')->name('admin.archive');
+    Route::get('/create', 'Pages\AdminPageController@create')->name('admin.create');
+    
     
     Route::resource('usersType', 'CRUD\UsersTypeController');
     Route::resource('users', 'CRUD\UsersController');
@@ -26,6 +28,8 @@ Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'checkManagerUser
     Route::get('/orders', function () { return view('users.manager.orders'); } )->name('manager.orders');
     Route::get('/production', 'Pages\ManagerPageController@production')->name('manager.production');
     Route::get('/processes', 'Pages\ManagerPageController@processes')->name('manager.processes');
+    Route::get('/archive', 'Pages\ManagerPageController@archive')->name('manager.archive');
+    Route::get('/create', 'Pages\ManagerPageController@create')->name('manager.create');
 
     
 });

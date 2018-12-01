@@ -1,5 +1,6 @@
 @extends('users.manager.layouts.app')
-@section('title') Заявки в процессе @endsection
+@section('title') Панель менеджера @endsection
+@section('caption') Заявки в процесса @endsection
 
 @section('content')
 

@@ -12,13 +12,22 @@ use App\Models\Order;
 
 class AdminPageController extends Controller
 {
+
+    public function create()
+    {
+        return view('users.admin.orders.create', [
+            'boxesTypes' => BoxesType::get(),
+            'materialsTypes' => MaterialsType::get()->first(),
+            'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
+        ]);
+    }
     
     public function index()
     {
         return view('users.admin.index', [
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
-            'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
+            'orders' => Order::where('id_author', '!=', Auth::user()->id_user)->get(),
         ]);
     }
 
@@ -50,7 +59,7 @@ class AdminPageController extends Controller
     {
         $whereClause = [
             ['id_author', '=', Auth::user()->id_user],
-            ['id_order_status', '=', 3],
+            ['id_order_status', '=', 1],
         ];
 
         return view('users.admin.orders.archive', [
