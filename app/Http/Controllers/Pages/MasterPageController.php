@@ -47,8 +47,10 @@ class MasterPageController extends Controller
     public function order(Order $order)
     {
         return view('users.master.orders.order', [
-            'order' => $order
-        ]);
+                'order' => $order
+            ]);
+            
+
     }
 
 }

@@ -37,6 +37,10 @@
             </tbody>
             <thead>
                 <tr>
+                    <th colspan="2">Кто выполняет</th>
+                    <td>{{ $order->getMaster() }}</td>
+                </tr>
+                <tr>
                     <th colspan="3">Сроки</th>
                 </tr>
                 <tr>
@@ -274,15 +278,13 @@
             @break
         @endswitch
         <div class="actions">
-            @if ($order->id_master != Auth::user()->id_user)
+            @if ($order->getMaster() === null)
                 <form method="POST" action="{{ route('orders.update', $order) }}">
                     @csrf
                     @method('PUT')
 
                     <input type="submit" class="ui primary button" value="Начать производство">
-                </form>
-            @else
-                
+                </form>            
             @endif
         </div>
     </div>
