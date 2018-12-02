@@ -48,8 +48,7 @@ class ManagerPageController extends Controller
     public function archive()
     {
         $whereClause = [
-            ['id_author', '=', Auth::user()->id_user],
-            ['id_order_status', '=', 1],
+            ['id_order_status', '=', 3],
         ];
 
         return view('users.manager.orders.archive', [
