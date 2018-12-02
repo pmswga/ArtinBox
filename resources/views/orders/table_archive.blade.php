@@ -12,10 +12,9 @@
             </tr>
         </thead>
         <tbody>
-            @php $i = 1 @endphp
             @foreach ($orders as $order)
                 <tr>
-                    <td>{{ $i++ }}</td>
+                    <td>{{ $order->id_order }}</td>
                     <td>{{ $order->getBoxType() }}</td>
                     <td>{{ $order->getSizes()['L']."x".$order->getSizes()['W']."x".$order->getSizes()['H'] }}</td>
                     <td>{{ $order->getCreateDate() }}</td>

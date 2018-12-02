@@ -87,7 +87,7 @@ class CalculatorForPicturesqueBoxType
                     "descp": "Уголок",
                     "detail": "Деталь D",
                     "desg": "DAxDB",
-                    "count": 8,
+                    "count": (this.l > 1499) ? 10 : 8,
                     "size_1": this.w + (this.s2.size * 2 ),
                     "size_2": 70,
                     "material": this.s3.material

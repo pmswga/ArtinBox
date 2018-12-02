@@ -17,7 +17,7 @@ class ManagerPageController extends Controller
         return view('users.manager.index', [
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
-            'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
+            'orders' => Order::where('id_author', '!=', Auth::user()->id_user)->get(),
         ]);
     }
 
@@ -61,7 +61,7 @@ class ManagerPageController extends Controller
     
     public function create()
     {
-        return view('users.admin.orders.create', [
+        return view('users.manager.orders.create', [
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
             'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
