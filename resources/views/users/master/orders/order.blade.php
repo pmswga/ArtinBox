@@ -193,6 +193,7 @@
                     </tr>
                 </tbody>
             </table>
+            @break
         @case(3)
             <table class="ui table">
                 <thead>
@@ -270,7 +271,20 @@
                     </tr>
                 </tbody>
             </table>
+            @break
         @endswitch
+        <div class="actions">
+            @if ($order->id_master != Auth::user()->id_user)
+                <form method="POST" action="{{ route('orders.update', $order) }}">
+                    @csrf
+                    @method('PUT')
+
+                    <input type="submit" class="ui primary button" value="Начать производство">
+                </form>
+            @else
+                
+            @endif
+        </div>
     </div>
 
     <script type="text/javascript">
