@@ -28,8 +28,26 @@ class MasterPageController extends Controller
             ['id_master', '=', Auth::user()->id_user]
         ];
 
-        return view('users.master.production', [
+        return view('users.master.orders.production', [
             'orders' => Order::where($whereOrders)->get()
+        ]);
+    }
+    
+    public function archive()
+    {
+        $whereClause = [
+            ['id_order_status', '=', 1],
+        ];
+
+        return view('users.master.orders.archive', [
+            'orders' => Order::where($whereClause)->get(),
+        ]);
+    }
+
+    public function order(Order $order)
+    {
+        return view('users.master.orders.order', [
+            'order' => $order
         ]);
     }
 

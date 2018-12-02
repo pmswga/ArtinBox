@@ -38,6 +38,7 @@ Route::group(['prefix' => '/master', 'middleware' => ['auth', 'checkMasterUser']
 
     Route::get('/', 'Pages\MasterPageController@index')->name('master.index');
     Route::get('/production', 'Pages\MasterPageController@production' )->name('master.production');
-
+    Route::get('/archive', 'Pages\MasterPageController@archive')->name('master.archive');
+    Route::get('/detail/{order}', 'Pages\MasterPageController@order')->name('master.order');
 
 });
