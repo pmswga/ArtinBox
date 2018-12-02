@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             BoxesTypesSeeder::class,
             OrdersStatusSeeder::class,
             MaterialsTypeSeeder::class,
+            ProductionStepsSeeder::class
         ]);
     }
 }

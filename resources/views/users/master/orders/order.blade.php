@@ -34,14 +34,18 @@
                     <td colspan="2">Высота внутренняя (мм)</td>
                     <td>{{ $order->getSizes()['H'] }}</td>
                 </tr>
+                <tr>
+                    <td colspan="2">Порядок изготовления</td>
+                    <td>{{ $order->getProductionStepsDescp() }}</td>
+                </tr>
             </tbody>
             <thead>
                 <tr>
-                    <th colspan="2">Кто выполняет</th>
-                    <td>{{ $order->getMaster() }}</td>
+                    <th colspan="3">Сроки</th>
                 </tr>
                 <tr>
-                    <th colspan="3">Сроки</th>
+                    <th colspan="2">Кто выполняет</th>
+                    <td>{{ $order->getMaster() }}</td>
                 </tr>
                 <tr>
                     <th colspan="2">Дата начала производства</th>
@@ -277,6 +281,18 @@
             </table>
             @break
         @endswitch
+
+        <div class="ui red segments">
+            <ul>
+            
+            @foreach ($order->getProductionSteps() as $step)
+                <li>{{ $step->id_production_step." | ".$step->caption }}</li>
+
+            @endforeach
+            </ul>
+
+        </div>
+
         <div class="actions">
             @if ($order->getMaster() === null)
                 <form method="POST" action="{{ route('orders.update', $order) }}">
@@ -284,7 +300,11 @@
                     @method('PUT')
 
                     <input type="submit" class="ui primary button" value="Начать производство">
-                </form>            
+                </form>
+            @endif
+
+            @if ($order->id_master === Auth::user()->id_user)
+                <a href="{{ route('master.step', $order) }}" class="ui primary button">Производство</a>
             @endif
         </div>
     </div>

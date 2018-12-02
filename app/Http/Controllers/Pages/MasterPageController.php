@@ -36,7 +36,7 @@ class MasterPageController extends Controller
     public function archive()
     {
         $whereClause = [
-            ['id_order_status', '=', 1],
+            ['id_order_status', '=', 3],
         ];
 
         return view('users.master.orders.archive', [
@@ -47,10 +47,15 @@ class MasterPageController extends Controller
     public function order(Order $order)
     {
         return view('users.master.orders.order', [
-                'order' => $order
-            ]);
-            
+            'order' => $order
+        ]);
+    }
 
+    public function step(Order $order)
+    {
+        return view('users.master.orders.step', [
+            'order' => $order
+        ]);
     }
 
 }

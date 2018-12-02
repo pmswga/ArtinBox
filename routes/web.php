@@ -40,5 +40,8 @@ Route::group(['prefix' => '/master', 'middleware' => ['auth', 'checkMasterUser']
     Route::get('/production', 'Pages\MasterPageController@production' )->name('master.production');
     Route::get('/archive', 'Pages\MasterPageController@archive')->name('master.archive');
     Route::get('/detail/{order}', 'Pages\MasterPageController@order')->name('master.order');
+    Route::get('/step/{order}', 'Pages\MasterPageController@step')->name('master.step');
+    Route::put('/next_step/{order}', 'CRUD\OrdersController@nextStep')->name('master.next_step');
+    Route::put('/end_step/{order}', 'CRUD\OrdersController@endStep')->name('master.end_step');
 
 });
