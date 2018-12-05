@@ -12,16 +12,6 @@ use App\Models\Order;
 
 class AdminPageController extends Controller
 {
-
-    public function create()
-    {
-        return view('users.admin.orders.create', [
-            'boxesTypes' => BoxesType::get(),
-            'materialsTypes' => MaterialsType::get()->first(),
-            'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
-            'count_orders' => Order::count()
-        ]);
-    }
     
     public function index()
     {
@@ -30,18 +20,6 @@ class AdminPageController extends Controller
             'materialsTypes' => MaterialsType::get()->first(),
             'orders' => Order::where('id_order_status', '=', 1)->get(),
             'count_orders' => Order::where('id_order_status', 1)->count()
-        ]);
-    }
-
-    public function production()
-    {
-        $whereClause = [
-            ['id_author', '=', Auth::user()->id_user],
-            ['id_order_status', '=', 1],
-        ];
-
-        return view('users.admin.orders.production', [
-            'orders' => Order::where($whereClause)->get(),
         ]);
     }
     
@@ -53,7 +31,26 @@ class AdminPageController extends Controller
 
         return view('users.admin.orders.archive', [
             'orders' => Order::where($whereClause)->get(),
-            'count_orders' => Order::count()
+            'count_orders' => Order::where('id_order_status', 1)->count()
+        ]);
+    }
+    
+    public function create()
+    {
+        return view('users.admin.orders.create', [
+            'boxesTypes' => BoxesType::get(),
+            'materialsTypes' => MaterialsType::get()->first(),
+            'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
+            'count_orders' => Order::where('id_order_status', 1)->count()
+        ]);
+    }
+
+    
+    public function order(Order $order)
+    {
+        return view('users.admin.orders.order', [
+            'order' => $order,
+            'count_orders' => Order::where('id_order_status', 1)->count()
         ]);
     }
 

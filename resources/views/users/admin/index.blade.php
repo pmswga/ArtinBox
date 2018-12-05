@@ -7,7 +7,7 @@
     <div class="ui internally celled grid">
         <div class="row">
             <div class="sixteen wide column">
-                @include('orders.table_all')
+                @include('orders.table_admin')
             </div>
         </div>
     </div>

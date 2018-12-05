@@ -11,6 +11,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']],
     Route::get('/', 'Pages\AdminPageController@index')->name('admin.index');
     Route::get('/archive', 'Pages\AdminPageController@archive')->name('admin.archive');
     Route::get('/create', 'Pages\AdminPageController@create')->name('admin.create');
+    Route::get('/detail/{order}', 'Pages\AdminPageController@order')->name('admin.order');
     
     
     Route::resource('usersType', 'CRUD\UsersTypeController');

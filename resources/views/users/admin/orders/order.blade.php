@@ -1,4 +1,4 @@
-@extends('users.master.layouts.app')
+@extends('users.admin.layouts.app')
 @section('title') Мои заявки @endsection
 @section('caption') Детали заявки @endsection
 
