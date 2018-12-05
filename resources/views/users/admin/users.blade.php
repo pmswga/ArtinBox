@@ -5,48 +5,16 @@
 
     <div class="ui internally celled grid">
         <div class="row">
-            <div class="ten wide column">
-                <fieldset class="ui segment">
-                    <legend><h3>Список пользователей</h3></legend>
-                    <table class="ui wide table">
-                        <thead>
-                            <tr>
-                                <th>№</th>
-                                <th>Имя</th>
-                                <th>E-mail</th>
-                                <th>Дата добавления</th>
-                                <th>Тип пользователя</th>
-                                <th>Выбрать</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php $i = 1 @endphp
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>{{ $i++ }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->created_at }}</td>
-                                    <td>{{ $user->getUserType() }}</td>
-                                    <td>
-                                        <form method="POST" action="{{ route('users.destroy', $user) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="submit" class="ui red button" value="Удалить">
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </fieldset>
-            </div>
-            <div class="six wide column">
+            <div class="sixteen wide column">
                 <fieldset class="ui segment">
                     <legend><h3>Добавить пользователя</h3></legend>
                     <form class="ui form" method="POST" action="{{ route('users.store') }}">
                         @csrf
 
+                        <div class="field">
+                            <label>Фамилия</label>
+                            <input type="text" name="second_name">
+                        </div>
                         <div class="field">
                             <label>Имя</label>
                             <input type="text" name="name">
@@ -76,6 +44,41 @@
                         </div>
                     </form>
                 </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen wide column">
+                <table class="ui wide table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Фамилия</th>
+                            <th>Имя</th>
+                            <th>E-mail</th>
+                            <th>Тип пользователя</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php $i = 1 @endphp
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $user->second_name }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->getUserType() }}</td>
+                                <td>
+                                    <form action="{{ route('users.destroy', $user) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="ui basic button"><i class="red trash icon"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

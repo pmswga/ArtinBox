@@ -19,6 +19,7 @@ class AdminPageController extends Controller
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
             'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
+            'count_orders' => Order::count()
         ]);
     }
     
@@ -27,7 +28,8 @@ class AdminPageController extends Controller
         return view('users.admin.index', [
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
-            'orders' => Order::where('id_author', '!=', Auth::user()->id_user)->get(),
+            'orders' => Order::where('id_order_status', '=', 1)->get(),
+            'count_orders' => Order::where('id_order_status', 1)->count()
         ]);
     }
 
@@ -42,19 +44,7 @@ class AdminPageController extends Controller
             'orders' => Order::where($whereClause)->get(),
         ]);
     }
-
-    public function processes()
-    {
-        $whereClause = [
-            ['id_author', '=', Auth::user()->id_user],
-            ['id_order_status', '=', 2],
-        ];
-
-        return view('users.admin.orders.processes', [
-            'orders' => Order::where($whereClause)->get(),
-        ]);
-    }
-
+    
     public function archive()
     {
         $whereClause = [
@@ -63,6 +53,7 @@ class AdminPageController extends Controller
 
         return view('users.admin.orders.archive', [
             'orders' => Order::where($whereClause)->get(),
+            'count_orders' => Order::count()
         ]);
     }
 

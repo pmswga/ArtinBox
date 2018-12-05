@@ -12,24 +12,17 @@ class MasterPageController extends Controller
     
     public function index()
     {
-        $whereOrders = [
+        $whereClause = [
             ['id_order_status', '=', 1],
         ];
 
         return view('users.master.index', [
-            'orders' => Order::where($whereOrders)->whereNull('id_master')->get()
-        ]);
-    }
-
-    public function production()
-    {
-        $whereOrders = [
-            ['id_order_status', '=', 2],
-            ['id_master', '=', Auth::user()->id_user]
-        ];
-
-        return view('users.master.orders.production', [
-            'orders' => Order::where($whereOrders)->get()
+            'orders' => Order::where($whereClause)->whereNull('id_master')->get(),
+            'orders_master' => Order::where([
+                ['id_order_status', '=', 2],
+                ['id_master', '=', Auth::user()->id_user]
+            ])->get(),
+            'count_orders' => Order::where($whereClause)->whereNull('id_master')->count()
         ]);
     }
     
@@ -41,6 +34,7 @@ class MasterPageController extends Controller
 
         return view('users.master.orders.archive', [
             'orders' => Order::where($whereClause)->get(),
+            'count_orders' => Order::where('id_order_status', 1)->whereNull('id_master')->count()
         ]);
     }
 

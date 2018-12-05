@@ -7,6 +7,8 @@
 
 @endsection
 
+@section('link') {{ route('admin.index') }} @endsection
+
 @section('menu')
 
     @include('users.admin.layouts.menu')

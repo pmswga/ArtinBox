@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\CRUD;
 
 use App\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,6 +25,7 @@ class UsersController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'second_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -37,7 +39,8 @@ class UsersController extends Controller
     public function index()
     {
         return view('users.admin.users', [
-            'users' => User::get()
+            'users' => User::get(),
+            'count_orders' => Order::where('id_order_status', 1)->count()
         ]);
     }
 
@@ -61,6 +64,7 @@ class UsersController extends Controller
     {
         User::create([
             'name' => $request['name'],
+            'second_name' => $request['second_name'],
             'email' => $request['email'],
             'password' => \Hash::make($request['password']),
             'id_user_type' => $request['user_type'],

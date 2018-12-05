@@ -25,7 +25,7 @@ class LoginController extends Controller
             {
                 case 1:
                 {
-                    return route('admin.production');
+                    return route('admin.index');
                 } break;
                 case 2:
                 {

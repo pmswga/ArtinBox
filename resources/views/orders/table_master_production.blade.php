@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($orders as $order)
+        @foreach ($orders_master as $order)
             <tr>
                 <td><a href="{{ route('master.order', $order) }}">{{ $order->id_order }}</a></td>
                 <td>{{ $order->getBoxType() }}</td>

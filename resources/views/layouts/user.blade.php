@@ -21,14 +21,17 @@
     </head>
     <body>
         <div class="ui pointing stackable menu">
-            <img src="{{ asset('img/logo.png') }}" >
-            <div class="header item">
-                <h2>@yield('caption')</h2>
-            </div>
+            <a href="@yield('link')">
+                <img src="{{ asset('img/logo.png') }}" height="100%">
+            </a>
+            
             <div class="right menu">
                 @auth
                     <div class="header item">
-                        Пользователь: {{ Auth::user()->name }}
+                        Пользователь: {{ Auth::user()->name." ".Auth::user()->second_name }}
+                    </div>
+                    <div class="header item">
+                        Роль: {{ Auth::user()->getUserType() }}
                     </div>
                     @include('auth.components.logout_button')
                 @endauth
