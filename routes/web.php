@@ -29,6 +29,7 @@ Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'checkManagerUser
     Route::get('/processes', 'Pages\ManagerPageController@processes')->name('manager.processes');
     Route::get('/archive', 'Pages\ManagerPageController@archive')->name('manager.archive');
     Route::get('/create', 'Pages\ManagerPageController@create')->name('manager.create');
+    Route::get('/detail/{order}', 'Pages\ManagerPageController@order')->name('manager.order');
 
     
 });

@@ -17,22 +17,11 @@ class ManagerPageController extends Controller
         return view('users.manager.index', [
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
-            'orders' => Order::where('id_author', '!=', Auth::user()->id_user)->get(),
+            'orders' => Order::where('id_order_status', 1)->get(),
+            'count_orders' => Order::where('id_order_status', 1)->count(),
         ]);
     }
-
-    public function processes()
-    {
-        $whereClause = [
-            ['id_author', '=', Auth::user()->id_user],
-            ['id_order_status', '=', 2],
-        ];
-
-        return view('users.manager.orders.processes', [
-            'orders' => Order::where($whereClause)->get(),
-        ]);
-    }
-
+    
     public function production()
     {
         $whereClause = [
@@ -53,10 +42,10 @@ class ManagerPageController extends Controller
 
         return view('users.manager.orders.archive', [
             'orders' => Order::where($whereClause)->get(),
+            'count_orders' => Order::where('id_order_status', 1)->count(),
         ]);
         
     }
-
     
     public function create()
     {
@@ -64,6 +53,15 @@ class ManagerPageController extends Controller
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
             'orders' => Order::where('id_author', Auth::user()->id_user)->get(),
+            'count_orders' => Order::where('id_order_status', 1)->count(),
+        ]);
+    }
+
+    public function order(Order $order)
+    {
+        return view('users.manager.orders.order', [
+            'order' => $order,
+            'count_orders' => Order::where('id_order_status', 1)->count()
         ]);
     }
 

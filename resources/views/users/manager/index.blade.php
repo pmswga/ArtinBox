@@ -1,16 +1,12 @@
 @extends('users.manager.layouts.app')
-@section('title') Панель менеджера @endsection
-@section('caption') Все заявки @endsection
+@section('title') В производстве @endsection
 
 @section('content')
 
     <div class="ui internally celled grid">
         <div class="row">
             <div class="sixteen wide column">
-                <fieldset class="ui orange segment">
-                    <legend><h3>Все заявки</h3></legend>
-                    @include('orders.table_all')
-                </fieldset>
+                @include('orders.table_manager')
             </div>
         </div>
     </div>

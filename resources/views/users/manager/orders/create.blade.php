@@ -8,13 +8,13 @@
         <div class="row">
             <div class="sixteen wide column">
                 <div class="ui top attached tabular menu">
-                    <a class="active item" data-tab="box_type_1">Стандартный (крышка сверху)</a>
-                    <a class="item" data-tab="box_type_2">Живописный</a>
+                    <a class="active item" data-tab="box_type_2">Живописный</a>
+                    <a class="item" data-tab="box_type_1">Стандартный (крышка сверху)</a>
                 </div>
-                <div class="ui bottom attached active tab segment" data-tab="box_type_1">
+                <div class="ui bottom attached tab segment" data-tab="box_type_1">
                     @include('orders.calcs.standart')
                 </div>
-                <div class="ui bottom attached tab segment" data-tab="box_type_2">
+                <div class="ui bottom attached active tab segment" data-tab="box_type_2">
                     @include('orders.calcs.pictured')
                 </div>
             </div>
