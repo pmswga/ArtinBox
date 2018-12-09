@@ -10,7 +10,7 @@ class CreateMaterialsType extends Migration
     {
         Schema::create('materialstype', function (Blueprint $table) {
             $table->increments('id_material_type');
-            $table->json('material');
+            $table->longText('material');
         });
     }
     
