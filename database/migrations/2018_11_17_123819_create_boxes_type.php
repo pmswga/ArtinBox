@@ -16,7 +16,7 @@ class CreateBoxesType extends Migration
         Schema::create('boxestype', function (Blueprint $table) {
             $table->increments('id_box_type');
             $table->string('caption')->unique();
-            $table->string('production_steps');
+            $table->string('production_steps')->unsigned();
         });
     }
 
