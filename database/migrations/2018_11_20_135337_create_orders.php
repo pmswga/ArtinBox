@@ -15,13 +15,13 @@ class CreateOrders extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id_order');
-            $table->integer('id_box_type')->unsigned();
+            $table->integer('id_box_type');
             $table->json('sizes');
             $table->datetime('create_date');
-            $table->integer('id_author')->unsigned();
-            $table->integer('id_order_status')->unsigned();
-            $table->integer('id_master')->nullable()->unsigned();
-            $table->integer('id_production_step')->nullable()->unsigned();
+            $table->integer('id_author');
+            $table->integer('id_order_status');
+            $table->integer('id_master')->nullable();
+            $table->integer('id_production_step')->nullable();
             $table->datetime('start_date')->nullable();
             $table->datetime('finish_date')->nullable();
         });
