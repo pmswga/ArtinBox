@@ -33,7 +33,7 @@ class LoginController extends Controller
                 } break;
                 case 3:
                 {
-                    return route('master.production');
+                    return route('master.index');
                 } break;
             }
         }
