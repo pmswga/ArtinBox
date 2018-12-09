@@ -20,10 +20,10 @@ class CreateOrders extends Migration
             $table->datetime('create_date');
             $table->integer('id_author');
             $table->integer('id_order_status');
-            $table->integer('id_master')->nullable();
-            $table->integer('id_production_step')->nullable();
-            $table->datetime('start_date')->nullable();
-            $table->datetime('finish_date')->nullable();
+            $table->integer('id_master')->default('0');
+            $table->integer('id_production_step')->default('0');
+            $table->datetime('start_date')->default('01-01-1970');
+            $table->datetime('finish_date')->default('01-01-1970');
         });
     }
 
