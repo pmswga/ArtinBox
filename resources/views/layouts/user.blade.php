@@ -28,10 +28,10 @@
             <div class="right menu">
                 @auth
                     <div class="header item">
-                        Пользователь: {{ Auth::user()->name." ".Auth::user()->second_name }}
+                        {{ Auth::user()->name." ".Auth::user()->second_name }}
                     </div>
                     <div class="header item">
-                        Роль: {{ Auth::user()->getUserType() }}
+                        {{ Auth::user()->getUserType() }}
                     </div>
                     @include('auth.components.logout_button')
                 @endauth
