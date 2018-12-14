@@ -30,10 +30,16 @@
                     <div class="header item">
                         {{ Auth::user()->name." ".Auth::user()->second_name }}
                     </div>
-                    <div class="header item">
+                    <a class="header item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
                         {{ Auth::user()->getUserType() }}
-                    </div>
-                    @include('auth.components.logout_button')
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <!-- @include('auth.components.logout_button') -->
                 @endauth
             </div>
         </div>
