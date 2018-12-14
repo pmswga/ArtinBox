@@ -13,27 +13,27 @@
 
                         <div class="field">
                             <label>Фамилия</label>
-                            <input type="text" name="second_name">
+                            <input type="text" name="second_name" required>
                         </div>
                         <div class="field">
                             <label>Имя</label>
-                            <input type="text" name="name">
+                            <input type="text" name="name" required>
                         </div>
                         <div class="field">
                             <label>E-mail</label>
-                            <input type="email" name="email">
+                            <input type="email" name="email" required>
                         </div>
                         <div class="field">
                             <label>Пароль</label>
-                            <input type="password" name="password">
+                            <input type="password" name="password" required>
                         </div>
                         <div class="field">
                             <label>Повторить пароль</label>
-                            <input type="password" name="password_confirmation">
+                            <input type="password" name="password_confirmation" required>
                         </div>
                         <div class="field">
                             <label>Тип пользователя</label>
-                            <select name="user_type">
+                            <select name="user_type" required>
                                 <option value="3">Мастер</option>
                                 <option value="2">Менеджер</option>
                                 <option value="1">Администратор</option>

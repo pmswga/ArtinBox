@@ -40,8 +40,9 @@ class MasterPageController extends Controller
 
     public function order(Order $order)
     {
-        return view('users.master.orders.order', [
-            'order' => $order
+        return view('users.admin.orders.order', [
+            'order' => $order,
+            'count_orders' => Order::where('id_order_status', 1)->whereNull('id_master')->count()
         ]);
     }
 

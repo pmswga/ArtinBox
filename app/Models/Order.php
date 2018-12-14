@@ -31,7 +31,7 @@ class Order extends Model
 
     public function getAuthor()
     {
-        return $this::hasOne('App\User', 'id_user', 'id_author')->first()['name'];
+        return $this::hasOne('App\User', 'id_user', 'id_author')->first();
     }
     
     public function getMaster()
