@@ -26,7 +26,7 @@ class MasterPageController extends Controller
         ]);
     }
     
-    public function archive()
+    public function archiveIndex()
     {
         $whereClause = [
             ['id_order_status', '=', 3],
@@ -37,10 +37,22 @@ class MasterPageController extends Controller
             'count_orders' => Order::where('id_order_status', 1)->whereNull('id_master')->count()
         ]);
     }
+    
+    public function archiveOrder(Order $order)
+    {
+        $whereClause = [
+            ['id_order_status', '=', 3],
+        ];
+
+        return view('users.master.orders.archiveOrder', [
+            'order' => $order,
+            'count_orders' => Order::where('id_order_status', 1)->count()
+        ]);
+    }
 
     public function order(Order $order)
     {
-        return view('users.admin.orders.order', [
+        return view('users.master.orders.order', [
             'order' => $order,
             'count_orders' => Order::where('id_order_status', 1)->whereNull('id_master')->count()
         ]);

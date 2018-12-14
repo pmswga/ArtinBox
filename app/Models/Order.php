@@ -36,7 +36,7 @@ class Order extends Model
     
     public function getMaster()
     {
-        return $this::hasOne('App\User', 'id_user', 'id_master')->first()['name'];
+        return $this::hasOne('App\User', 'id_user', 'id_master')->first();
     }
 
     public function getCreateDate()

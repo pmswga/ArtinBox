@@ -14,13 +14,25 @@
         <tbody>
             @foreach ($orders as $order)
                 <tr>
-                    <td>{{ $order->id_order }}</td>
+
+                    @switch (Auth::user()->id_user_type)
+                    @case(1)
+                        <td><a href="{{ route('admin.archiveOrder', $order) }}">{{ $order->id_order }}</a></td>
+                        @break
+                    @case(2)
+                        <td><a href="{{ route('manager.archiveOrder', $order) }}">{{ $order->id_order }}</a></td>
+                        @break
+                    @case(3)
+                        <td><a href="{{ route('master.archiveOrder', $order) }}">{{ $order->id_order }}</a></td>
+                        @break
+                    @endswitch
+
                     <td>{{ $order->getBoxType() }}</td>
                     <td>{{ $order->getSizes()['L']."x".$order->getSizes()['W']."x".$order->getSizes()['H'] }}</td>
                     <td>{{ $order->getCreateDate() }}</td>
                     <td>{{ $order->getCreateDate() }}</td>
                     <td>{{ $order->getProcessTime() }}</td>
-                    <td>{{ $order->getMaster() }}</td>
+                    <td>{{ $order->getMaster()->name." ".$order->getMaster()->second_name }}</td>
                 </tr>
             @endforeach
         </tbody>

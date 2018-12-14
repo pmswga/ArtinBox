@@ -23,7 +23,7 @@ class AdminPageController extends Controller
         ]);
     }
     
-    public function archive()
+    public function archiveIndex()
     {
         $whereClause = [
             ['id_order_status', '=', 3],
@@ -31,6 +31,18 @@ class AdminPageController extends Controller
 
         return view('users.admin.orders.archive', [
             'orders' => Order::where($whereClause)->get(),
+            'count_orders' => Order::where('id_order_status', 1)->count()
+        ]);
+    }
+
+    public function archiveOrder(Order $order)
+    {
+        $whereClause = [
+            ['id_order_status', '=', 3],
+        ];
+
+        return view('users.admin.orders.archiveOrder', [
+            'order' => $order,
             'count_orders' => Order::where('id_order_status', 1)->count()
         ]);
     }

@@ -34,17 +34,29 @@ class ManagerPageController extends Controller
         ]);
     }
 
-    public function archive()
+    public function archiveIndex()
     {
         $whereClause = [
             ['id_order_status', '=', 3],
         ];
 
-        return view('users.manager.orders.archive', [
+        return view('users.manager.orders.archiveIndex', [
             'orders' => Order::where($whereClause)->get(),
             'count_orders' => Order::where('id_order_status', 1)->count(),
         ]);
         
+    }
+    
+    public function archiveOrder(Order $order)
+    {
+        $whereClause = [
+            ['id_order_status', '=', 3],
+        ];
+
+        return view('users.manager.orders.archiveOrder', [
+            'order' => $order,
+            'count_orders' => Order::where('id_order_status', 1)->count()
+        ]);
     }
     
     public function create()

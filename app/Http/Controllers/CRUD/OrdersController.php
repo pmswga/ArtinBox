@@ -77,7 +77,7 @@ class OrdersController extends Controller
         $order->finish_date = date("Y-m-d H:i:s");
         $order->update();
         
-        return redirect()->route('master.archive');
+        return redirect()->route('master.archiveIndex');
     }
 
 
