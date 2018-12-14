@@ -7,6 +7,10 @@
 
 @endsection
 
+@section('link') {{ route('manager.index') }} @endsection
+@section('logo') <img src="{{ asset('img/users/logo-manager.png') }}" height="100%"> @endsection
+
+
 @section('menu')
 
     @include('users.manager.layouts.menu')

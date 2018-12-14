@@ -22,7 +22,7 @@
     <body>
         <div class="ui pointing stackable menu">
             <a href="@yield('link')">
-                <img src="{{ asset('img/logo.png') }}" height="100%">
+                @yield('logo')
             </a>
             
             <div class="right menu">

@@ -8,6 +8,7 @@
 @endsection
 
 @section('link') {{ route('admin.index') }} @endsection
+@section('logo') <img src="{{ asset('img/users/logo-admin.png') }}" height="100%"> @endsection
 
 @section('menu')
 

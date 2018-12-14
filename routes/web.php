@@ -13,7 +13,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'checkAdminUser']],
     Route::get('/create', 'Pages\AdminPageController@create')->name('admin.create');
     Route::get('/detail/{order}', 'Pages\AdminPageController@order')->name('admin.order');
     
-    
     Route::resource('usersType', 'CRUD\UsersTypeController');
     Route::resource('users', 'CRUD\UsersController');
     Route::resource('ordersStatus', 'CRUD\OrdersStatusController');
