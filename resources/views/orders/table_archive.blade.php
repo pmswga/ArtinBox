@@ -9,6 +9,7 @@
                 <th>Дата производства</th>
                 <th>Затраченное время</th>
                 <th>Кто сделал</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,13 @@
                     <td>{{ $order->getCreateDate() }}</td>
                     <td>{{ $order->getProcessTime()->format('%h:%I:%S') }}</td>
                     <td>{{ $order->getMaster()->name." ".$order->getMaster()->second_name }}</td>
+                    <td>
+                            <form action="{{ route('orders.destroy', $order) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="ui basic button"><i class="red trash icon"></i></button>
+                            </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
