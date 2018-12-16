@@ -35,11 +35,14 @@
                     <td>{{ $order->getProcessTime()->format('%h:%I:%S') }}</td>
                     <td>{{ $order->getMaster()->name." ".$order->getMaster()->second_name }}</td>
                     <td>
+                        @if (Auth::user()->id_user_type != 3)
+                        
                             <form action="{{ route('orders.destroy', $order) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="ui basic button"><i class="red trash icon"></i></button>
                             </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach
