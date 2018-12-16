@@ -51,7 +51,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">Затраченное время</td>
-                        <td>{{ $order->getProcessTime() }}</td>
+                        <td>{{ $order->getProcessTime()->format('%h:%I:%S') }}</td>
                     </tr>
                     <tr>
                         <td colspan="2">Мастер</td>
