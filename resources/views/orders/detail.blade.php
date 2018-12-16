@@ -1,4 +1,3 @@
-
 <div class="ui stackable grid">
     <div class="row">
         <div class="six wide column">
@@ -49,7 +48,7 @@
             
             <div class="actions">
                 @if (Auth::user()->id_user === 3)
-                    @if ($order->getMaster() === null)
+                    @if ($order->getMaster() === null && $order->id_order_status === 1)
                         <form method="POST" action="{{ route('orders.update', $order) }}">
                             @csrf
                             @method('PUT')

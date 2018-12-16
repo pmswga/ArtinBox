@@ -46,11 +46,18 @@ class Order extends Model
 
     public function getProcessTime()
     {
+        date_default_timezone_set('Europe/Moscow');
+        
         if (($this->start_date != null) && ($this->finish_date != null)) {
-            return date('H:i:s', strtotime($this->finish_date) - strtotime($this->start_date));
+            
+            $date_1 = new \DateTime($this->start_date);
+            $date_2 = new \DateTime($this->finish_date);
         } else {
-            return date('H:i:s', time() - strtotime($this->start_date));
+            $date_1 = new \DateTime($this->start_date);
+            $date_2 = new \DateTime(date('d.m.Y H:i:s'));
         }
+
+        return $date_2->diff($date_1);
     }
 
     public function getStartDate()

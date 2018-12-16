@@ -23,6 +23,8 @@ class OrdersController extends Controller
 
     public function store(Request $request)
     {
+        date_default_timezone_set('Europe/Moscow');
+
         Order::create([
             'id_box_type' => $request['box_type'],
             'sizes' => $request['sizes'],
@@ -46,6 +48,8 @@ class OrdersController extends Controller
 
     public function update(Request $request, Order $order)
     {
+        date_default_timezone_set('Europe/Moscow');
+
         $order->id_master = Auth::user()->id_user;
         $order->id_order_status = 2;
         $order->id_production_step = ProductionSteps::where('id_box_type', $order->id_box_type)->first()['id_production_step'];
@@ -73,6 +77,8 @@ class OrdersController extends Controller
 
     public function endStep(Order $order)
     {
+        date_default_timezone_set('Europe/Moscow');
+
         $order->id_order_status = 3;
         $order->finish_date = date("Y-m-d H:i:s");
         $order->update();

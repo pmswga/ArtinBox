@@ -25,7 +25,7 @@
                             <tr>
                                 <td>{{ $order->id_order }}</td>
                                 <td>{{ $order->getBoxType() }}</td>
-                                <td>{{ $order->getProcessTime() }}</td>
+                                <td>{{ $order->getProcessTime()->format('%h:%I:%S') }}</td>
                                 <td><a href="{{ route('master.order', $order) }}">Просмотр</a></td>
                             </tr>
                         </tbody>

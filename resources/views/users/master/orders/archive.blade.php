@@ -7,7 +7,6 @@
         <div class="row">
             <div class="sixteen wide column">
                     @include('orders.table_archive')
-                    
             </div>
         </div>
     </div>

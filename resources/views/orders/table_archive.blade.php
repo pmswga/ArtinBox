@@ -31,7 +31,7 @@
                     <td>{{ $order->getSizes()['L']."x".$order->getSizes()['W']."x".$order->getSizes()['H'] }}</td>
                     <td>{{ $order->getCreateDate() }}</td>
                     <td>{{ $order->getCreateDate() }}</td>
-                    <td>{{ $order->getProcessTime() }}</td>
+                    <td>{{ $order->getProcessTime()->format('%h:%I:%S') }}</td>
                     <td>{{ $order->getMaster()->name." ".$order->getMaster()->second_name }}</td>
                 </tr>
             @endforeach
