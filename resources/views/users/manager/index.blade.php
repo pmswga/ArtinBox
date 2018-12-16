@@ -7,6 +7,7 @@
         <div class="row">
             <div class="sixteen wide column">
                 @include('orders.table_manager')
+           
             </div>
         </div>
     </div>

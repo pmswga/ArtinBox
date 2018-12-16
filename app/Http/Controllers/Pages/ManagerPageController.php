@@ -18,6 +18,10 @@ class ManagerPageController extends Controller
             'boxesTypes' => BoxesType::get(),
             'materialsTypes' => MaterialsType::get()->first(),
             'orders' => Order::where('id_order_status', 1)->get(),
+            'orders_manager' => Order::where([
+                ['id_order_status', '=', 2],
+                ['id_master', '=', Auth::user()->id_user]
+            ])->get(),
             'count_orders' => Order::where('id_order_status', 1)->count(),
         ]);
     }

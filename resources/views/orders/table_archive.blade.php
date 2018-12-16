@@ -15,7 +15,6 @@
         <tbody>
             @foreach ($orders as $order)
                 <tr>
-
                     @switch (Auth::user()->id_user_type)
                     @case(1)
                         <td><a href="{{ route('admin.archiveOrder', $order) }}">{{ $order->id_order }}</a></td>
@@ -27,7 +26,6 @@
                         <td><a href="{{ route('master.archiveOrder', $order) }}">{{ $order->id_order }}</a></td>
                         @break
                     @endswitch
-
                     <td>{{ $order->getBoxType() }}</td>
                     <td>{{ $order->getSizes()['L']."x".$order->getSizes()['W']."x".$order->getSizes()['H'] }}</td>
                     <td>{{ $order->getCreateDate() }}</td>

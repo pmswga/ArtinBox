@@ -23,20 +23,25 @@
     <body>
 
         <div class="ui pointing stackable menu">
-            <div href="{{ route('index') }}" class="header item">
-                <h2>
-                    ArtinBox
-                    @auth
-                        | {{ Auth::user()->getUserType() }}
-                    @endauth
-                </h2>
-            </div>
+            @auth
+                @switch (Auth::user()->id_user_type)
+                @case(1)
+                    <a  href="{{ route('admin.index') }}"><img src="{{ asset('img/users/logo-admin.png') }}" height="100%"></a>
+                    @break
+                @case(2)
+                    <a href="{{ route('manager.index') }}"><img src="{{ asset('img/users/logo-manager.png') }}" height="100%"></a>
+                    @break
+                @case(3)
+                    <a href="{{ route('master.index') }}"> <img src="{{ asset('img/users/logo-master.png') }}" height="100%"> </a>
+                    @break
+                @endswitch
+            @endauth
             <div class="right menu">
                 @auth
                     <a class="item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        Выйти
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -45,7 +50,7 @@
                 @endauth
             </div>
         </div>
-
+        
         @yield('content')
 
         <script type="text/javascript">
