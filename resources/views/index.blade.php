@@ -6,7 +6,6 @@
         <div class="row">
             <div class="five wide column"></div>
             <div class="six wide column">
-
                 @guest
                     <fieldset class="ui segment">
                         <legend><h3>Войти</h3></legend>

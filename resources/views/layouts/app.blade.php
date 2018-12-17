@@ -23,19 +23,17 @@
     <body>
 
         <div class="ui pointing stackable menu">
-            @auth
-                @switch (Auth::user()->id_user_type)
-                @case(1)
-                    <a  href="{{ route('admin.index') }}"><img src="{{ asset('img/users/logo-admin.png') }}" height="100%"></a>
-                    @break
-                @case(2)
-                    <a href="{{ route('manager.index') }}"><img src="{{ asset('img/users/logo-manager.png') }}" height="100%"></a>
-                    @break
-                @case(3)
-                    <a href="{{ route('master.index') }}"> <img src="{{ asset('img/users/logo-master.png') }}" height="100%"> </a>
-                    @break
-                @endswitch
-            @endauth
+            @switch (Auth::user()->id_user_type)
+            @case(1)
+                <a  href="{{ route('admin.index') }}"><img src="{{ asset('img/logo.png') }}" height="100%"></a>
+                @break
+            @case(2)
+                <a  href="{{ route('manager.index') }}"><img src="{{ asset('img/logo.png') }}" height="100%"></a>
+                @break
+            @case(3)
+                <a  href="{{ route('master.index') }}"><img src="{{ asset('img/logo.png') }}" height="100%"></a>
+                @break
+            @endswitch
             <div class="right menu">
                 @auth
                     <a class="item" href="{{ route('logout') }}"

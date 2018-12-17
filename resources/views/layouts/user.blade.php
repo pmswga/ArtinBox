@@ -21,25 +21,27 @@
     </head>
     <body>
         <div class="ui pointing stackable menu">
-            <a href="@yield('link')">
-                @yield('logo')
+            <a href="{{ route('index') }}">
+                <img src="{{ asset('img/logo.png') }}" height="100%"> 
             </a>
             
             <div class="right menu">
                 @auth
-                    <div class="header item">
+                    <div class="ui dropdown item">
                         {{ Auth::user()->name." ".Auth::user()->second_name }}
-                    </div>
-                    <a class="header item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                        {{ Auth::user()->getUserType() }}
-                    </a>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">    
+                            <a class="header item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                Выйти
+                            </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                    <!-- @include('auth.components.logout_button') -->
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
                 @endauth
             </div>
         </div>
