@@ -33,7 +33,7 @@ class OrdersController extends Controller
             'id_order_status' => 1
         ]);
 
-        return back();
+        return back()->with('status', 'Заявка успешно создана');
     }
 
     public function show(Order $order)

@@ -222,7 +222,6 @@
         picturedCalc.setS3(JSON.parse($("[name='picturesBoxS3']").val()));
 
         $("[name='sizes']:last()").attr('value', picturedCalc.getSizes());
-        alert("Заявка успешно создана");
     });
 
 </script>

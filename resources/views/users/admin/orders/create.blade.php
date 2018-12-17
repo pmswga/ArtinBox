@@ -7,6 +7,13 @@
     <div class="ui internally celled stackable grid">
         <div class="row">
             <div class="sixteen wide column">
+                @if (session('status'))
+                    <div class="ui green message">
+                        <div class="header">
+                            {{ session('status') }}
+                        </div>
+                    </div>
+                @endif
                 <div class="ui top attached tabular menu">
                     <a class="active item" data-tab="box_type_2">Живописный</a>
                     <!-- <a class="item" data-tab="box_type_1">Стандартный (крышка сверху)</a> -->
