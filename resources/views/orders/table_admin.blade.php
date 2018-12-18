@@ -17,13 +17,11 @@
                     <td>{{ $order->getSizes()['L']."x".$order->getSizes()['W']."x".$order->getSizes()['H']  }}</td>
                     <td>{{ $order->getCreateDate() }}</td>
                     <td>
-                        @if (Auth::user()->id_user === $order->id_author)
-                            <form action="{{ route('orders.destroy', $order) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="ui basic button"><i class="red trash icon"></i></button>
-                            </form>
-                        @endif
+                        <form action="{{ route('orders.destroy', $order) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="ui basic button"><i class="red trash icon"></i></button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
