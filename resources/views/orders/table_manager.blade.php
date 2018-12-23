@@ -17,7 +17,7 @@
                     <td>{{ $order->getSizes()['L']."x".$order->getSizes()['W']."x".$order->getSizes()['H']  }}</td>
                     <td>{{ $order->getCreateDate() }}</td>
                     <td>
-                        <form action="{{ route('orders.destroy', $order) }}" method="POST">
+                        <form action="{{ route('orders.destroy', $order) }}" onsubmit='return confirm("Удалить заявку?");' method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="ui basic button"><i class="red trash icon"></i></button>

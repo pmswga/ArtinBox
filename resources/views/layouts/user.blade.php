@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name') }} | @yield('title') </title>
+        <title>@yield('title')</title>
 
         <!-- Scripts -->
         <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
@@ -17,7 +17,6 @@
         <script src="{{ asset('js/semantic.js') }}"></script>
 
         @yield('head')
-
     </head>
     <body>
         <div class="ui pointing stackable menu">
@@ -35,11 +34,12 @@
                     <div class="ui dropdown item">
                         {{ Auth::user()->name." ".Auth::user()->second_name }}
                         <i class="dropdown icon"></i>
-                        <div class="menu">    
+                        <div class="menu">
+                            <div class="item">{{ Auth::user()->getUserType() }}</div>
                             <a class="header item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                Выйти
+                                <u>Выйти</u>
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -63,9 +63,8 @@
         </div>
 
         <script type="text/javascript">
-        
             $('.ui.dropdown').dropdown();
-
+            $('#menu-title').text($('title').text());
         </script>
 
     </body>

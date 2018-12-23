@@ -25,8 +25,6 @@ Route::group(['prefix' => '/manager', 'middleware' => ['auth', 'checkManagerUser
 
     Route::get('/', 'Pages\ManagerPageController@index')->name('manager.index');
     Route::get('/orders', function () { return view('users.manager.orders'); } )->name('manager.orders');
-    Route::get('/production', 'Pages\ManagerPageController@production')->name('manager.production');
-    Route::get('/processes', 'Pages\ManagerPageController@processes')->name('manager.processes');
     Route::get('/archive', 'Pages\ManagerPageController@archiveIndex')->name('manager.archiveIndex');
     Route::get('/archive/{order}', 'Pages\ManagerPageController@archiveOrder')->name('manager.archiveOrder');
     Route::get('/create', 'Pages\ManagerPageController@create')->name('manager.create');

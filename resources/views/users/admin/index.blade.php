@@ -1,6 +1,5 @@
 @extends('users.admin.layouts.app')
-@section('title') Панель администратора @endsection
-@section('caption') Все заявки @endsection
+@section('title') В производстве @endsection
 
 @section('content')
 

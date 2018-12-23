@@ -69,7 +69,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->getUserType() }}</td>
                                 <td>
-                                    <form action="{{ route('users.destroy', $user) }}" method="POST">
+                                    <form action="{{ route('users.destroy', $user) }}" onsubmit='return confirm("Удалить пользователя?")' method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="ui basic button"><i class="red trash icon"></i></button>
