@@ -57,7 +57,14 @@
                     @break
                 @endswitch
             @else
-            <div class="header item"><h2>ArtinBox</h2></div>
+                <a class="item" style="padding: 0px;" href="{{ route('index') }}">
+                    <div class="item" style="padding: 0px;">
+                        <img src="{{ asset('img/logo.png') }}" style="width: 100%;">
+                    </div>
+                    <div class="item">
+                        <h2>Мастер</h2>
+                    </div>
+                </a>
             @endauth
             <div class="right menu">
                 @auth
