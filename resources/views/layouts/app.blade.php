@@ -26,13 +26,34 @@
             @auth
                 @switch (Auth::user()->id_user_type)
                 @case(1)
-                    <a  href="{{ route('admin.index') }}"><img src="{{ asset('img/logo.png') }}" height="100%"></a>
+                    <a class="item" style="padding: 0px;" href="{{ route('admin.index') }}">
+                        <div class="item" style="padding: 0px;">
+                            <img src="{{ asset('img/logo.png') }}" style="width: 100%;">
+                        </div>
+                        <div class="item">
+                            <h2>Мастер</h2>
+                        </div>
+                    </a>
                     @break
                 @case(2)
-                    <a  href="{{ route('manager.index') }}"><img src="{{ asset('img/logo.png') }}" height="100%"></a>
+                    <a class="item" style="padding: 0px;" href="{{ route('manager.index') }}">
+                        <div class="item" style="padding: 0px;">
+                            <img src="{{ asset('img/logo.png') }}" style="width: 100%;">
+                        </div>
+                        <div class="item">
+                            <h2>Мастер</h2>
+                        </div>
+                    </a>
                     @break
                 @case(3)
-                    <a  href="{{ route('master.index') }}"><img src="{{ asset('img/logo.png') }}" height="100%"></a>
+                    <a class="item" style="padding: 0px;" href="{{ route('master.index') }}">
+                        <div class="item" style="padding: 0px;">
+                            <img src="{{ asset('img/logo.png') }}" style="width: 100%;">
+                        </div>
+                        <div class="item">
+                            <h2>Мастер</h2>
+                        </div>
+                    </a>
                     @break
                 @endswitch
             @else

@@ -21,8 +21,13 @@
     </head>
     <body>
         <div class="ui pointing stackable menu">
-            <a href="{{ route('index') }}">
-                <img src="{{ asset('img/logo.png') }}" height="100%"> 
+            <a class="item" style="padding: 0px;" href="{{ route('index') }}">
+                <div class="item" style="padding: 0px;">
+                    <img src="{{ asset('img/logo.png') }}" style="width: 100%;">
+                </div>
+                <div class="item">
+                    <h2>Мастер</h2>
+                </div>
             </a>
             
             <div class="right menu">
